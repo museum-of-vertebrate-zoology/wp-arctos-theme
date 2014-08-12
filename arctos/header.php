@@ -33,6 +33,7 @@
     <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <script src="<?php echo dirname(__FILE__); ?>/bower_components/platform/platform.js"></script>
+    <script src="<?php echo dirname(__FILE__); ?>/bower_components/jquery/dist/jquery.min.js"></script>
     <link rel="import" href="<?php echo dirname(__FILE__); ?>bower_components/paper-elements/paper-elements.html"/>
     <link rel="import" href="<?php echo dirname(__FILE__); ?>bower_components/core-elements/core-elements.html"/>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
