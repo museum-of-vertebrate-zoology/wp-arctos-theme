@@ -1,14 +1,14 @@
 /*
-Theme Name: Twenty Ten
-Theme URI: http://wordpress.org/themes/twentyten
-Description: The 2010 theme for WordPress is stylish, customizable, simple, and readable -- make it yours with a custom menu, header image, and background. Twenty Ten supports six widgetized areas (two in the sidebar, four in the footer) and featured images (thumbnails for gallery posts and custom header images for posts and pages). It includes stylesheets for print and the admin Visual Editor, special styles for posts in the "Asides" and "Gallery" categories, and has an optional one-column page template that removes the sidebar.
-Author: the WordPress team
-Author URI: http://wordpress.org/
-Version: 1.6
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Theme Name: ArctosDB.org
+Theme URI: https://github.com/tigerhawkvok/wp-arctos-theme
+Description: Based on WordPress default theme "Twenty Ten", from http://wordpress.org/themes/twentyten. Created for ArctosDB.org beginning in August 2014. License updated from GPLv2 to GPLv3 (as per twentyten license)
+Author: Philip Kahn
+Author URI: http://philipkahn.com
+Version: 1.0
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl.html
 Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu, flexible-header
-Text Domain: twentyten
+Text Domain: arctosdb.org
 */
 
 
@@ -1375,4 +1375,139 @@ code {
 	.home .sticky {
 		border: none;
 	}
+}
+
+/**********************
+ * From Arctos CSS
+ ********************/
+
+#toplink {
+	border: 1px solid black;
+	position: fixed;
+	left: 0;
+	top: 25%;
+}
+
+.blcondreq {
+	color: gray;
+}
+
+.blrequired {
+	color: red;
+}
+
+.bloptional {
+	color: green;
+}
+
+.anchortitle {
+	font-weight: bold;
+	margin-left: -.8em;
+	border-bottom: 1px solid black;
+}
+
+.anchors {
+	font-size: .7em;
+	float: left;
+	clear: both;
+	line-height: 150%;
+	border: 1px solid green;
+	margin: 1em;
+	padding: 1em;
+}
+
+.example {
+	font-size: small;
+	font-weight: bold;
+}
+
+.next {
+	font-size: small;
+}
+
+h1 {
+	font-size: 1.3em;
+}
+
+A:link {
+	text-decoration: none;
+	color: #003B5C;
+}
+
+A:visited:hover {
+	text-decoration: underline;
+	color: #CC0000;
+}
+
+A:visited {
+	text-decoration: none;
+	color: #660099;
+}
+
+A:hover {
+	text-decoration: underline;
+	color: #CC0000;
+}
+
+label {
+	display: block;
+	font-size: 12px;
+	font-weight: 800;
+}
+
+.docTitle {
+	color: red;
+}
+
+.docDef {
+	color: green;
+}
+
+.infoLink,.infoLink a:visited {
+	cursor: pointer;
+	color: #2B547E;
+	font-size: .65em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.infoLink:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+div.fldDef {
+	float: right;
+	background-color: lightgrey;
+	clear: both;
+	font-size: x-small;
+	margin-left: 2px;
+	margin-right: 2px;
+	width: 200px;
+	z-index: 1;
+	border: none;
+	line-height: 100%;
+	padding: 2px;
+}
+
+.navMenu {
+	font-size: .7em;
+	float: left;
+	clear: both;
+	margin: 5px;
+	padding: 5px;
+}
+
+.dsMenu {
+	font-size: .7em;
+	padding: 5px;
+}
+
+.docsList {
+	font-size: smaller;
+}
+
+.breadCrumbs {
+	font-size: smaller;
+	float: right;
+	padding: 5px;
 }
