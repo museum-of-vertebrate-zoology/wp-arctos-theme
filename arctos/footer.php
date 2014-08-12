@@ -5,9 +5,6 @@
  * Contains the closing of the id=main div and all content
  * after. Calls sidebar-footer.php for bottom widgets.
  *
- * @package WordPress
- * @subpackage Twenty_Ten
- * @since Twenty Ten 1.0
  */
 ?>
 	</div><!-- #main -->
@@ -26,11 +23,12 @@
 				<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 					<?php bloginfo( 'name' ); ?>
 				</a>
+                                |
+                                <paper-icon-button icon="social:post-twitter" onclick="openLink('https://twitter.com/arctos')"></paper-icon-button>
 			</div><!-- #site-info -->
 
 			<div id="site-generator">
-				<?php do_action( 'twentyten_credits' ); ?>
-				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentyten' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentyten' ); ?>"><?php printf( __( 'Proudly powered by %s.', 'twentyten' ), 'WordPress' ); ?></a>
+                          Written with <core-icon icon="polymer"></core-icon>
 			</div><!-- #site-generator -->
 
 		</div><!-- #colophon -->

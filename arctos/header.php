@@ -4,15 +4,12 @@
  *
  * Displays all of the <head> section and everything up till <div id="main">
  *
- * @package WordPress
- * @subpackage Twenty_Ten
- * @since Twenty Ten 1.0
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<title><?php
+  <head>
+    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <title><?php
 	/*
 	 * Print the <title> tag based on what is being viewed.
 	 */
@@ -32,10 +29,15 @@
 	if ( $paged >= 2 || $page >= 2 )
 		echo ' | ' . sprintf( __( 'Page %s', 'twentyten' ), max( $paged, $page ) );
 
-	?></title>
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+      ?></title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <script src="<?php echo dirname(__FILE__); ?>/bower_components/platform/platform.js"></script>
+    <link rel="import" href="<?php echo dirname(__FILE__); ?>bower_components/paper-elements/paper-elements.html"/>
+    <link rel="import" href="<?php echo dirname(__FILE__); ?>bower_components/core-elements/core-elements.html"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).
@@ -50,13 +52,13 @@
 	 */
 	wp_head();
 ?>
-</head>
+  </head>
 
-<body <?php body_class(); ?>>
-<div id="wrapper" class="hfeed">
-	<div id="header">
-		<div id="masthead">
-			<div id="branding" role="banner">
+  <body <?php body_class(); ?>>
+    <div id="wrapper" class="hfeed">
+      <div id="header">
+	<div id="masthead">
+	  <div id="branding" role="banner">
 				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
 				<<?php echo $heading_tag; ?> id="site-title">
 					<span>
