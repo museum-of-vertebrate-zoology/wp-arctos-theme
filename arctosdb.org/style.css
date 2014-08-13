@@ -4,7 +4,7 @@ Theme URI: https://github.com/tigerhawkvok/wp-arctos-theme
 Description: Based on WordPress default theme "Twenty Ten", from http://wordpress.org/themes/twentyten. Created for ArctosDB.org beginning in August 2014. License updated from GPLv2 to GPLv3 (as per twentyten license). Minimum WordPress version 3.9.
 Author: Philip Kahn
 Author URI: http://philipkahn.com
-Version: 0.1.1
+Version: 0.1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu, flexible-header
@@ -31,11 +31,18 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 }
 body {
-	line-height: 1;
+    line-height: 1;
+    font-family:"Open Sans","Droid Sans","Helvetica",sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
-	clear: both;
-	font-weight: normal;
+    clear: both;
+    font-family:"Roboto","Open Sans","Droid Sans","Helvetica",sans-serif;    
+}
+h1,h2,h3 {
+    font-weight:100;
+}
+h4,h5,6 {
+    font-weight:300;
 }
 ol, ul {
 	list-style: none;
@@ -109,51 +116,8 @@ DESCRIPTION: Full width content with no sidebar; used for attachment pages
 	width: 900px;
 }
 
-
-/* =Fonts
--------------------------------------------------------------- */
-body,
-input,
-textarea,
-.page-title span,
-.pingback a.url {
-	font-family: Georgia, "Bitstream Charter", serif;
-}
-h3#comments-title,
-h3#reply-title,
-#access .menu,
-#access div.menu ul,
-#cancel-comment-reply-link,
-.form-allowed-tags,
-#site-info,
-#site-title,
-#wp-calendar,
-.comment-meta,
-.comment-body tr th,
-.comment-body thead th,
-.entry-content label,
-.entry-content tr th,
-.entry-content thead th,
-.entry-meta,
-.entry-title,
-.entry-utility,
-#respond label,
-.navigation,
-.page-title,
-.pingback p,
-.reply,
-.widget-title,
-.wp-caption-text {
-	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
-}
-input[type="submit"] {
-	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
-}
-pre {
-	font-family: "Courier 10 Pitch", Courier, monospace;
-}
-code {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+pre,code {
+	font-family: "Droid Sans Mono",Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 
 
@@ -172,7 +136,6 @@ div.menu,
 }
 #wrapper {
 	background: #fff;
-	margin-top: 20px;
 	padding: 0 20px;
 }
 
@@ -346,7 +309,7 @@ a:hover {
 -------------------------------------------------------------- */
 
 #header {
-	padding: 30px 0 0 0;
+	padding: 0;
 }
 #site-title {
 	float: left;
@@ -370,8 +333,6 @@ a:hover {
 
 /* This is the custom header image */
 #branding img {
-	border-top: 4px solid #000;
-	border-bottom: 1px solid #000;
 	display: block;
 	float: left;
 }
@@ -575,7 +536,6 @@ div.menu li {
 #content .entry-title {
 	color: #000;
 	font-size: 21px;
-	font-weight: bold;
 	line-height: 1.3em;
 	margin-bottom: 0;
 }
@@ -722,7 +682,21 @@ body.page .edit-link {
 #content .video-player {
 	padding: 0;
 }
-
+#twitter-link {
+    margin-top:-0.75em;
+}
+paper-tabs#menu-main {
+    color:#fff;
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+}
+paper-tabs[noink][nobar] paper-tab.core-selected{
+    color: #FF6600;
+}
+paper-tabs::shadow #selectionBar {
+    background-color:#FF6600;
+}
+#access, #access ul ul a { background-color: #003b5c;}
+#access li:hover > a, #access ul ul *:hover > a { background-color: #FF6600;}
 
 /* =Asides
 -------------------------------------------------------------- */
@@ -1520,8 +1494,7 @@ div.fldDef {
 #access a { color: #B5B5B5;}
 .entry-meta a:link, .entry-utility a:link { color: #888888;}
 body { background-color: #FFFFFF;}
-#access, #access ul ul a { background-color: #003b5c;}
-#access li:hover > a, #access ul ul *:hover > a { background-color: #FF6600;}
+
 a:link, a:visited { color: #447755;}
 .home .sticky { background-color: #7CB490;}
 .home .sticky { background-color: rgba( 124, 180, 144, 0.05 );}

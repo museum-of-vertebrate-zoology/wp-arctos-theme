@@ -299,10 +299,10 @@ $(function() {
 });
 
 wpReplacements = function() {
-  menuClass;
-  var i, paperHTML;
-  paperHTML = "<paper-tabs id='menu-main'>";
+  var here, i, paperHTML;
+  paperHTML = "<paper-tabs id='menu-main' noink>";
   i = 0;
+  here = 0;
   return $("#menu-main li a").each(function() {
     var className, href, id, name;
     href = $(this).attr("href");
@@ -310,10 +310,15 @@ wpReplacements = function() {
     className = $(this).parent().attr("class");
     id = $(this).parent().attr('id');
     paperHTML += "<paper-tab class='" + className + "' id='" + id + "' onclick=\"openLink('" + href + "')\">" + name + "</paper-tab>";
+    if (href === window.location.href) {
+      here = i;
+    }
     i++;
-    if (i === $("#menu-main li").length()) {
+    if (i === $("#menu-main li").length) {
       paperHTML += "</paper-tabs>";
-      return $("#primary-navigation").html(paperHTML);
+      $("#primary-navigation").html(paperHTML);
+      document.querySelector("#menu-main").setAttribute("selected", here);
+      return console.log("Selected element " + here);
     }
   });
 };

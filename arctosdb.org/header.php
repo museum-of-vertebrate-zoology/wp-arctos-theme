@@ -54,6 +54,7 @@
     <link rel='icon' type='image/png' sizes='256x254' href='<?php echo get_template_directory_uri(); ?>/images/favicon256.png' />
 
     <link rel='icon' type='image/png' sizes='512x512' href='<?php echo get_template_directory_uri(); ?>/images/favicon512.png' />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300|Open+Sans:400italic,600italic,700italic,400,700,600' rel='stylesheet' type='text/css'/>
 <?php
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).
@@ -72,7 +73,7 @@
 
   <body <?php body_class(); ?>>
     <div id="wrapper" class="hfeed">
-      <div id="header">
+      <header id="header">
 	<div id="masthead">
 	  <div id="branding" role="banner">
             <img src="<?php echo get_template_directory_uri(); ?>/images/headers/wp-banner-02.svg" alt="" />
@@ -90,5 +91,5 @@
             ?>
 	  </div><!-- #access -->
 	</div><!-- #masthead -->
-      </div><!-- #header -->
+      </header>
       <div id="main">
