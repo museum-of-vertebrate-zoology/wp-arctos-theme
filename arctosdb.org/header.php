@@ -35,6 +35,7 @@
     <script src="<?php echo get_template_directory_uri(); ?>/bower_components/platform/platform.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/bower_components/picturefill/dist/picturefill.min.js" aysnc></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/purl.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/c.min.js"></script>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-elements/paper-elements.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-elements/core-elements.html"/>
