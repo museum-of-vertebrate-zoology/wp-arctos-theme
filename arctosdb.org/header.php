@@ -73,20 +73,11 @@
       <div id="header">
 	<div id="masthead">
 	  <div id="branding" role="banner">
-				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
-				<<?php echo $heading_tag; ?> id="site-title">
-					<span>
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-					</span>
-				</<?php echo $heading_tag; ?>>
-				<div id="site-description"><?php bloginfo( 'description' ); ?></div>
-
-<img src="<?php echo get_template_directory_uri(); ?>/images/headers/wp-banner-02.svg" alt="" />
-                                <!-- Insert a polyfill here for
-                                backwar compatibility wihtout SVG -->
-			</div><!-- #branding -->
-
-			<div id="access" role="navigation">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/headers/wp-banner-02.svg" alt="" />
+            <!-- Insert a polyfill here for
+                 backward compatibility wihtout SVG -->
+	  </div><!-- #branding -->
+	  <div id="access" role="navigation">
 			  <?php /* Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
 				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentyten' ); ?>"><?php _e( 'Skip to content', 'twentyten' ); ?></a></div>
 				<?php /* Our navigation menu. If one isn't filled out, wp_nav_menu falls back to wp_page_menu. The menu assiged to the primary position is the one used. If none is assigned, the menu with the lowest ID is used. */ ?>
