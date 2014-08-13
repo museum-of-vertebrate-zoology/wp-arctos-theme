@@ -39,6 +39,19 @@
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+    <link rel='shortcut icon' type='image/vnd.microsoft.icon' sizes='16x16' href='<?php echo dirname(__FILE__); ?>/images/favicon.ico' />
+
+    <link rel='icon' type='image/png' sizes='16x16' href='<?php echo dirname(__FILE__); ?>/images/favicon16.png' />
+
+    <link rel='icon' type='image/png' sizes='32x32' href='<?php echo dirname(__FILE__); ?>/images/favicon32.png' />
+
+    <link rel='icon' type='image/png' sizes='64x64' href='<?php echo dirname(__FILE__); ?>/images/favicon64.png' />
+
+    <link rel='icon' type='image/png' sizes='128x128' href='<?php echo dirname(__FILE__); ?>/images/favicon128.png' />
+
+    <link rel='icon' type='image/png' sizes='256x254' href='<?php echo dirname(__FILE__); ?>/images/favicon256.png' />
+
+    <link rel='icon' type='image/png' sizes='512x512' href='<?php echo dirname(__FILE__); ?>/images/favicon512.png' />
 <?php
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).
