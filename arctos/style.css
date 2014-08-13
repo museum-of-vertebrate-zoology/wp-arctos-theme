@@ -1511,3 +1511,24 @@ div.fldDef {
 	float: right;
 	padding: 5px;
 }
+
+#access ul li.current_page_item > a, #access ul li.current_page_parent > a, #access ul li.current-menu-ancestor > a, #access ul li.current-menu-item > a, #access ul li.current-menu-parent > a { color: #FFFFFF;}
+#access li:hover > a, #access ul ul *:hover > a { fg2: #ffffff;}
+#access a { color: #B5B5B5;}
+.entry-meta a:link, .entry-utility a:link { color: #888888;}
+body { background-color: #FFFFFF;}
+#access, #access ul ul a { background-color: #003b5c;}
+#access li:hover > a, #access ul ul *:hover > a { background-color: #FF6600;}
+a:link, a:visited { color: #447755;}
+.home .sticky { background-color: #7CB490;}
+.home .sticky { background-color: rgba( 124, 180, 144, 0.05 );}
+.home .sticky .page-link a { background-color: #7CB490;}
+.home .sticky .page-link a { background-color: rgba( 124, 180, 144, 0.2 );}
+a:hover, a:focus, a:active { color: #000000;}
+.entry-title a:active, .entry-title a:hover { color: #000000;}
+.page-title a:active, .page-title a:hover { color: #000000;}
+.entry-meta a:hover, .entry-utility a:hover { color: #000000;}
+.navigation a:active, .navigation a:hover { color: #000000;}
+.comment-meta a:active, .comment-meta a:hover { color: #000000;}
+.reply a:hover, a.comment-edit-link:hover { color: #000000;}
+.page-link a:active, .page-link a:hover { color: #000000;}
