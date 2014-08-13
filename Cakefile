@@ -7,7 +7,7 @@ fs            = require 'fs'
 # order of files in `inFiles` is important
 config =
   srcDir:  'coffee'
-  outDir:  'arctos/js'
+  outDir:  'arctosdb.org/js'
   inFiles: [ 'color', 'imageCanvas', 'app' ]
   outFile: 'c'
   yuic:    'yuicompressor.jar'

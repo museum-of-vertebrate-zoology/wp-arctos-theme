@@ -164,6 +164,11 @@ stopLoadError = (elId="#status-container") ->
     catch e
       console.log('Could not stop load error animation', e.message);
 
+openLink = (url) ->
+  if not url? then return false
+  window.open(url)
+  false
+
 $ ->
   try
     window.picturefill()
