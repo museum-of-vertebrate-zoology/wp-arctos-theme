@@ -56,7 +56,7 @@ function arctosSetup()
    * Seperates out changes from the base twentyten theme and the setup
    * for ArctosDB.org.
    ***/
-  register_nav_menu( 'primary-header', 'Primary Header Menu' );
+  register_nav_menu( 'primary-header', __('Primary Header Menu for ArctosDB.org'));
 }
 
 # add_action("init","arctosSetup");
@@ -239,7 +239,9 @@ function twentyten_page_menu_args( $args )
    * @since Twenty Ten 1.0
    ***/
 	if ( ! isset( $args['show_home'] ) )
-		$args['show_home'] = true;
+    {
+      $args['show_home'] = true;
+    }
 	return $args;
 }
 add_filter( 'wp_page_menu_args', 'twentyten_page_menu_args' );
