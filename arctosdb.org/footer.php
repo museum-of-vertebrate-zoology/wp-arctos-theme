@@ -24,7 +24,7 @@
 					<?php bloginfo( 'name' ); ?>
 				</a>
                                 |
-                                <paper-icon-button id='twitter-link' icon="social:post-twitter" onclick="openLink('https://twitter.com/arctos')"></paper-icon-button>
+                                <paper-icon-button id='twitter-link' icon="social:post-twitter" onclick="openLink('https://twitter.com/arctosdb')"></paper-icon-button>
 			</div><!-- #site-info -->
 
 			<div id="site-generator">
