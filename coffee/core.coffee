@@ -168,7 +168,12 @@ openLink = (url) ->
   if not url? then return false
   window.open(url)
   false
-
+  
+goTo = (url) ->
+  if not url? then return false
+  window.location.href = url
+  false
+  
 $ ->
   try
     window.picturefill()

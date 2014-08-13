@@ -9,7 +9,7 @@ wpReplacements = ->
     name = $(this).text()
     className = $(this).parent().attr("class")
     id = $(this).parent().attr('id')
-    paperHTML += "<paper-tab class='#{className}' id='#{id}' onclick=\"openLink('#{href}')\">#{name}</paper-tab>"
+    paperHTML += "<paper-tab class='#{className}' id='#{id}' onclick=\"goTo('#{href}')\">#{name}</paper-tab>"
     if href is window.location.href then here = i
     i++
     if i is $("#menu-main li").length
