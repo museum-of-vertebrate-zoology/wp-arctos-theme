@@ -1241,6 +1241,9 @@ h3#reply-title {
 	overflow: hidden;
 	padding: 18px 0;
 }
+#site-info, #site-info a {
+    vertical-align:top;
+}
 #site-info {
 	font-weight: bold;
 }
