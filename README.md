@@ -1,7 +1,7 @@
 wp-arctos-theme
 ===============
 
-Theme for arctosdb.org
+Theme for arctosdb.org and WordPress 3.9.0 +
 
 Refer to http://codex.wordpress.org/Theme_Development for theme parameters.
 
