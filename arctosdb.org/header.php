@@ -34,6 +34,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <script src="<?php echo get_template_directory_uri(); ?>/bower_components/platform/platform.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/bower_components/picturefill/dist/picturefill.min.js" aysnc></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/c.min.js"></script>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-elements/paper-elements.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-elements/core-elements.html"/>
@@ -82,8 +83,8 @@
 	  </div><!-- #branding -->
 	  <div id="access" role="navigation">
 	    <?php /* Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
-	    <div class="skip-link screen-reader-text">              
-              <a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentyten' ); ?>"><?php _e( 'Skip to content', 'twentyten' ); ?></a>              
+	    <div class="skip-link screen-reader-text">
+              <a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentyten' ); ?>"><?php _e( 'Skip to content', 'twentyten' ); ?></a>
             </div>
 	    <?php /* Our navigation menu. If one isn't filled out, wp_nav_menu falls back to wp_page_menu. The menu assiged to the primary position is the one used. If none is assigned, the menu with the lowest ID is used. */ ?>
 	    <?php
