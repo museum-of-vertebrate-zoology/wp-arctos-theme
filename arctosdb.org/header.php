@@ -84,7 +84,6 @@
 				<img src="images/headers/wp-banner-02.svg" alt="" />
                                 <!-- Insert a polyfill here for
                                 backwar compatibility wihtout SVG -->
-					<?php endif; ?>
 			</div><!-- #branding -->
 
 			<div id="access" role="navigation">
