@@ -18,5 +18,6 @@ wpReplacements = ->
       document.querySelector("#menu-main").setAttribute("selected",here)
       console.log("Selected element #{here}")
 
+
 $ ->
   wpReplacements()
