@@ -83,7 +83,7 @@ DESCRIPTION: Two-column fixed layout with one sidebar right of content
 	margin: 0 280px 0 20px;
 }
 #primary,
-#secondary {
+#secondary,#arctos_sidebar {
 	float: right;
 	overflow: hidden;
 	width: 220px;
@@ -354,6 +354,10 @@ div.menu {
 	font-size: 13px;
 	margin-left: 12px;
 	width: 928px;
+}
+#primary-navigation {
+    width:100%;
+    margin:0;
 }
 #access .menu-header ul,
 div.menu ul {
@@ -696,7 +700,7 @@ paper-tabs[noink][nobar] paper-tab.core-selected{
 paper-tabs::shadow #selectionBar {
     background-color:#FF6600;
 }
-#access, #access ul ul a { background-color: #003b5c;}
+/* #access, #access ul ul a { background-color: #003b64;} /* Nav background color */
 #access li:hover > a, #access ul ul *:hover > a { background-color: #FF6600;}
 .materialblue {
     background:#5677fc;
@@ -746,6 +750,19 @@ paper-tabs::shadow #selectionBar {
 .materialbluegreytext {
     color: #607d8b;
     
+}
+/* Via http://brand.berkeley.edu/colors/ */
+.berkeleyblue {
+    background-color:#003262;
+}
+.calgold {
+    background-color:#FDB515;
+}
+.foundersrock {
+    background-color:#2D637F;
+}
+.medalist {
+    background-color:#E09E19;
 }
 
 /* =Asides

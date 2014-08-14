@@ -2,18 +2,15 @@
 /**
  * Navigation Menu template functions
  *
- * @package WordPress
- * @subpackage Nav_Menus
- * @since 3.0.0
  */
 
 /**
  * Create HTML list of nav menu items.
  *
  * @since 3.0.0
- * @uses Walker
+ * @uses Walker_Nav_Menu
  */
-class Arctos_Paper_Nav_Menu extends Walker {
+class Arctos_Paper_Nav_Menu extends Walker_Nav_Menu {
 	/**
 	 * What the class handles.
 	 *
@@ -42,7 +39,7 @@ class Arctos_Paper_Nav_Menu extends Walker {
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param int    $depth  Depth of menu item. Used for padding.
-	 * @param array  $args   An array of arguments. @see wp_nav_menu()
+	 * @param array  $args   An array of arguments. @see arctos_wp_nav_menu()
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth);
@@ -58,7 +55,7 @@ class Arctos_Paper_Nav_Menu extends Walker {
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param int    $depth  Depth of menu item. Used for padding.
-	 * @param array  $args   An array of arguments. @see wp_nav_menu()
+	 * @param array  $args   An array of arguments. @see arctos_wp_nav_menu()
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth);
@@ -75,7 +72,7 @@ class Arctos_Paper_Nav_Menu extends Walker {
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param object $item   Menu item data object.
 	 * @param int    $depth  Depth of menu item. Used for padding.
-	 * @param array  $args   An array of arguments. @see wp_nav_menu()
+	 * @param array  $args   An array of arguments. @see arctos_wp_nav_menu()
 	 * @param int    $id     Current item ID.
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -89,11 +86,11 @@ class Arctos_Paper_Nav_Menu extends Walker {
 		 *
 		 * @since 3.0.0
 		 *
-		 * @see wp_nav_menu()
+		 * @see arctos_wp_nav_menu()
 		 *
 		 * @param array  $classes The CSS classes that are applied to the menu item's <li>.
 		 * @param object $item    The current menu item.
-		 * @param array  $args    An array of wp_nav_menu() arguments.
+		 * @param array  $args    An array of arctos_wp_nav_menu() arguments.
 		 */
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
@@ -103,16 +100,16 @@ class Arctos_Paper_Nav_Menu extends Walker {
 		 *
 		 * @since 3.0.1
 		 *
-		 * @see wp_nav_menu()
+		 * @see arctos_wp_nav_menu()
 		 *
 		 * @param string $menu_id The ID that is applied to the menu item's <li>.
 		 * @param object $item    The current menu item.
-		 * @param array  $args    An array of wp_nav_menu() arguments.
+		 * @param array  $args    An array of arctos_wp_nav_menu() arguments.
 		 */
 		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-		$output .= $indent . '<paper-tab' . $id . $class_names .' onclick="goTo('.$item->target.')">';
+		$output .= $indent . '<paper-tab' . $id . $class_names .' onclick="goTo(\''.$item->url.'\')" data-url="'.$item->url.'">';
 
 		$atts = array();
 		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -125,7 +122,7 @@ class Arctos_Paper_Nav_Menu extends Walker {
 		 *
 		 * @since 3.6.0
 		 *
-		 * @see wp_nav_menu()
+		 * @see arctos_wp_nav_menu()
 		 *
 		 * @param array $atts {
 		 *     The HTML attributes applied to the menu item's <a>, empty strings are ignored.
@@ -136,7 +133,7 @@ class Arctos_Paper_Nav_Menu extends Walker {
 		 *     @type string $href   The href attribute.
 		 * }
 		 * @param object $item The current menu item.
-		 * @param array  $args An array of wp_nav_menu() arguments.
+		 * @param array  $args An array of arctos_wp_nav_menu() arguments.
 		 */
 		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
@@ -164,12 +161,12 @@ class Arctos_Paper_Nav_Menu extends Walker {
 		 *
 		 * @since 3.0.0
 		 *
-		 * @see wp_nav_menu()
+		 * @see arctos_wp_nav_menu()
 		 *
 		 * @param string $item_output The menu item's starting HTML output.
 		 * @param object $item        Menu item data object.
 		 * @param int    $depth       Depth of menu item. Used for padding.
-		 * @param array  $args        An array of wp_nav_menu() arguments.
+		 * @param array  $args        An array of arctos_wp_nav_menu() arguments.
 		 */
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
@@ -184,7 +181,7 @@ class Arctos_Paper_Nav_Menu extends Walker {
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param object $item   Page data object. Not used.
 	 * @param int    $depth  Depth of page. Not Used.
-	 * @param array  $args   An array of arguments. @see wp_nav_menu()
+	 * @param array  $args   An array of arguments. @see arctos_wp_nav_menu()
 	 */
 	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 		$output .= "</paper-tab>\n";
@@ -223,7 +220,7 @@ class Arctos_Paper_Nav_Menu extends Walker {
  * }
  * @return mixed Menu output if $echo is false, false if there are no items or no menu was found.
  */
-function wp_nav_menu( $args = array() ) {
+function arctos_wp_nav_menu( $args = array() ) {
 	static $menu_id_slugs = array();
 
 	$defaults = array( 'menu' => '', 'container' => 'div', 'container_class' => '', 'container_id' => '', 'menu_class' => 'menu', 'menu_id' => '',
@@ -236,28 +233,28 @@ function wp_nav_menu( $args = array() ) {
 	 *
 	 * @since 3.0.0
 	 *
-	 * @see wp_nav_menu()
+	 * @see arctos_wp_nav_menu()
 	 *
-	 * @param array $args Array of wp_nav_menu() arguments.
+	 * @param array $args Array of arctos_wp_nav_menu() arguments.
 	 */
-	$args = apply_filters( 'wp_nav_menu_args', $args );
+	$args = apply_filters( 'arctos_wp_nav_menu_args', $args );
 	$args = (object) $args;
 
 	/**
-	 * Filter whether to short-circuit the wp_nav_menu() output.
+	 * Filter whether to short-circuit the arctos_wp_nav_menu() output.
 	 *
 	 * Returning a non-null value to the filter will short-circuit
-	 * wp_nav_menu(), echoing that value if $args->echo is true,
+	 * arctos_wp_nav_menu(), echoing that value if $args->echo is true,
 	 * returning that value otherwise.
 	 *
 	 * @since 3.9.0
 	 *
-	 * @see wp_nav_menu()
+	 * @see arctos_wp_nav_menu()
 	 *
 	 * @param string|null $output Nav menu output to short-circuit with. Default null.
-	 * @param object      $args   An object containing wp_nav_menu() arguments.
+	 * @param object      $args   An object containing arctos_wp_nav_menu() arguments.
 	 */
-	$nav_menu = apply_filters( 'pre_wp_nav_menu', null, $args );
+	$nav_menu = apply_filters( 'pre_arctos_wp_nav_menu', null, $args );
 
 	if ( null !== $nav_menu ) {
 		if ( $args->echo ) {
@@ -317,7 +314,7 @@ function wp_nav_menu( $args = array() ) {
 		 * @param array $tags The acceptable HTML tags for use as menu containers.
 		 *                    Default is array containing 'div' and 'nav'.
 		 */
-		$allowed_tags = apply_filters( 'wp_nav_menu_container_allowedtags', array( 'div', 'nav' ) );
+		$allowed_tags = apply_filters( 'arctos_wp_nav_menu_container_allowedtags', array( 'div', 'nav' ) );
 		if ( in_array( $args->container, $allowed_tags ) ) {
 			$show_container = true;
 			$class = $args->container_class ? ' class="' . esc_attr( $args->container_class ) . '"' : ' class="menu-'. $menu->slug .'-container"';
@@ -327,7 +324,7 @@ function wp_nav_menu( $args = array() ) {
 	}
 
 	// Set up the $menu_item variables
-	_wp_menu_item_classes_by_context( $menu_items );
+	_arctos_wp_menu_item_classes_by_context( $menu_items );
 
 	$sorted_menu_items = $menu_items_with_children = array();
 	foreach ( (array) $menu_items as $menu_item ) {
@@ -352,11 +349,11 @@ function wp_nav_menu( $args = array() ) {
 	 * @since 3.1.0
 	 *
 	 * @param array  $sorted_menu_items The menu items, sorted by each menu item's menu order.
-	 * @param object $args              An object containing wp_nav_menu() arguments.
+	 * @param object $args              An object containing arctos_wp_nav_menu() arguments.
 	 */
-	$sorted_menu_items = apply_filters( 'wp_nav_menu_objects', $sorted_menu_items, $args );
+	$sorted_menu_items = apply_filters( 'arctos_wp_nav_menu_objects', $sorted_menu_items, $args );
 
-	$items .= walk_nav_menu_tree( $sorted_menu_items, $args->depth, $args );
+	$items .= arctos_walk_nav_menu_tree( $sorted_menu_items, $args->depth, $args );
 	unset($sorted_menu_items);
 
 	// Attributes
@@ -380,29 +377,30 @@ function wp_nav_menu( $args = array() ) {
 	 *
 	 * @since 3.0.0
 	 *
-	 * @see wp_nav_menu()
+	 * @see arctos_wp_nav_menu()
 	 *
 	 * @param string $items The HTML list content for the menu items.
-	 * @param object $args  An object containing wp_nav_menu() arguments.
+	 * @param object $args  An object containing arctos_wp_nav_menu() arguments.
 	 */
-	$items = apply_filters( 'wp_nav_menu_items', $items, $args );
+	$items = apply_filters( 'arctos_wp_nav_menu_items', $items, $args );
 	/**
 	 * Filter the HTML list content for a specific navigation menu.
 	 *
 	 * @since 3.0.0
 	 *
-	 * @see wp_nav_menu()
+	 * @see arctos_wp_nav_menu()
 	 *
 	 * @param string $items The HTML list content for the menu items.
-	 * @param object $args  An object containing wp_nav_menu() arguments.
+	 * @param object $args  An object containing arctos_wp_nav_menu() arguments.
 	 */
-	$items = apply_filters( "wp_nav_menu_{$menu->slug}_items", $items, $args );
+	$items = apply_filters( "arctos_wp_nav_menu_{$menu->slug}_items", $items, $args );
 
 	// Don't print any markup if there are no items at this point.
 	if ( empty( $items ) )
 		return false;
 
-	$nav_menu .= sprintf( $args->items_wrap, esc_attr( $wrap_id ), esc_attr( $wrap_class ), $items );
+  $paper_wrap = '<paper-tabs id="%1$s" class="%2$s" noink>%3$s</paper-tabs>';
+	$nav_menu .= sprintf( $paper_wrap, esc_attr( $wrap_id ), esc_attr( $wrap_class ), $items );
 	unset( $items );
 
 	if ( $show_container )
@@ -413,12 +411,12 @@ function wp_nav_menu( $args = array() ) {
 	 *
 	 * @since 3.0.0
 	 *
-	 * @see wp_nav_menu()
+	 * @see arctos_wp_nav_menu()
 	 *
 	 * @param string $nav_menu The HTML content for the navigation menu.
-	 * @param object $args     An object containing wp_nav_menu() arguments.
+	 * @param object $args     An object containing arctos_wp_nav_menu() arguments.
 	 */
-	$nav_menu = apply_filters( 'wp_nav_menu', $nav_menu, $args );
+	$nav_menu = apply_filters( 'arctos_wp_nav_menu', $nav_menu, $args );
 
 	if ( $args->echo )
 		echo $nav_menu;
@@ -434,7 +432,7 @@ function wp_nav_menu( $args = array() ) {
  *
  * @param array $menu_items The current menu item objects to which to add the class property information.
  */
-function _wp_menu_item_classes_by_context( &$menu_items ) {
+function _arctos_wp_menu_item_classes_by_context( &$menu_items ) {
 	global $wp_query, $wp_rewrite;
 
 	$queried_object = $wp_query->get_queried_object();
@@ -655,7 +653,7 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
  * @since 3.0.0
  * @see Walker::walk() for parameters and return description.
  */
-function walk_nav_menu_tree( $items, $depth, $r ) {
+function arctos_walk_nav_menu_tree( $items, $depth, $r ) {
 	$walker = ( empty($r->walker) ) ? new Walker_Nav_Menu : $r->walker;
 	$args = array( $items, $depth, $r );
 
@@ -668,11 +666,11 @@ function walk_nav_menu_tree( $items, $depth, $r ) {
  * @since 3.0.1
  * @access private
  */
-function _nav_menu_item_id_use_once( $id, $item ) {
+function _arctos_nav_menu_item_id_use_once( $id, $item ) {
 	static $_used_ids = array();
 	if ( in_array( $item->ID, $_used_ids ) )
 		return '';
 	$_used_ids[] = $item->ID;
 	return $id;
 }
-add_filter( 'nav_menu_item_id', '_nav_menu_item_id_use_once', 10, 2 );
+add_filter( 'nav_menu_item_id', '_arctos_nav_menu_item_id_use_once', 10, 2 );

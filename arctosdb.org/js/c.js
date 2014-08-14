@@ -307,30 +307,28 @@ $(function() {
 });
 
 wpReplacements = function() {
-  var here, i, paperHTML;
-  paperHTML = "<paper-tabs id='menu-main' noink>";
+  var i;
   i = 0;
-  here = 0;
-  return $("#menu-main li a").each(function() {
-    var className, href, id, name;
-    href = $(this).attr("href");
-    name = $(this).text();
-    className = $(this).parent().attr("class");
-    id = $(this).parent().attr('id');
-    paperHTML += "<paper-tab class='" + className + "' id='" + id + "' onclick=\"goTo('" + href + "')\">" + name + "</paper-tab>";
+  return $("paper-tab").each(function() {
+    var href;
+    href = $(this).attr("data-url");
     if (href === window.location.href) {
-      here = i;
-    }
-    i++;
-    if (i === $("#menu-main li").length) {
-      paperHTML += "</paper-tabs>";
-      $("#primary-navigation").html(paperHTML);
-      document.querySelector("#menu-main").setAttribute("selected", here);
-      return console.log("Selected element " + here);
+      document.querySelector("#menu-main").setAttribute("selected", i);
+      return console.log("Selected element " + i);
     }
   });
 };
 
 $(function() {
-  return wpReplacements();
+  wpReplacements();
+  $("#searchsubmit").click(function() {
+    return $("#sidebar-search-form").submit();
+  });
+  return $("#s").keyup(function(e) {
+    var code;
+    code = e.keyCode || e.which;
+    if (code === 13) {
+      return $("#sidebar-search-form").submit();
+    }
+  });
 });
