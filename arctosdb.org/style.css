@@ -4,7 +4,7 @@ Theme URI: https://github.com/tigerhawkvok/wp-arctos-theme
 Description: Based on WordPress default theme "Twenty Ten", from http://wordpress.org/themes/twentyten. Created for ArctosDB.org beginning in August 2014. License updated from GPLv2 to GPLv3 (as per twentyten license). Minimum WordPress version 3.9.
 Author: Philip Kahn
 Author URI: http://philipkahn.com
-Version: 0.2.1
+Version: 0.2.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu, flexible-header
@@ -349,14 +349,14 @@ a:hover {
 	margin: 0 auto;
 	width: 940px;
 }
-#access .menu-header,
+/*#access .menu-header,*/
 div.menu {
 	font-size: 13px;
 	margin-left: 12px;
 	width: 928px;
 }
-#primary-navigation {
-    width:100% !important;
+header nav#primary-navigation {
+    width:100%;
     margin:0 !important;
 }
 paper-tab {
@@ -696,6 +696,7 @@ body.page .edit-link {
 paper-tabs#menu-main {
     color:#fff;
     box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+    z-index:1000;
 }
 paper-tabs[noink][nobar] paper-tab.core-selected{
     color: #FF6600;

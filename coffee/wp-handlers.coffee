@@ -13,7 +13,7 @@ wpReplacements = ->
 
 $ ->
   wpReplacements()
-  $("#primary-navigation").sticky({topSpacing:0})
+  $("paper-tabs").sticky({topSpacing:0,getWidthFrom:"header"})
   $("#searchsubmit").click ->
     $("#sidebar-search-form").submit()
   $("#s").keyup (e) ->

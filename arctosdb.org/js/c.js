@@ -323,8 +323,9 @@ wpReplacements = function() {
 
 $(function() {
   wpReplacements();
-  $("#primary-navigation").sticky({
-    topSpacing: 0
+  $("paper-tabs").sticky({
+    topSpacing: 0,
+    getWidthFrom: "header"
   });
   $("#searchsubmit").click(function() {
     return $("#sidebar-search-form").submit();
