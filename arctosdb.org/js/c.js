@@ -324,7 +324,7 @@ wpReplacements = function() {
 lightboxImages = function(selector) {
   var options;
   if (selector == null) {
-    selector = "a > img";
+    selector = "a";
   }
   options = {
     onStart: function() {
@@ -341,9 +341,9 @@ lightboxImages = function(selector) {
       return activityIndicatorOff();
     }
   };
-  return $(selector).each(function() {
-    if (($(this).attr("nolightbox") == null) && ($(this).parent().attr("nolightbox") == null)) {
-      return $(this).parent().imageLightbox(options);
+  return $(selector).has("img").each(function() {
+    if ($(this).attr("nolightbox") == null) {
+      return $(this).imageLightbox(options);
     }
   });
 };

@@ -10,7 +10,7 @@ wpReplacements = ->
     else
       i++
 
-lightboxImages = (selector = "a > img") ->
+lightboxImages = (selector = "a") ->
   options =
       onStart: ->
         overlayOn()
@@ -21,10 +21,10 @@ lightboxImages = (selector = "a > img") ->
         activityIndicatorOn()
       onLoadEnd: ->
         activityIndicatorOff()
-  $(selector).each ->
+  $(selector).has("img").each ->
     # bigImage = $(this).parent().attr("href")
-    if not $(this).attr("nolightbox")? and not $(this).parent().attr("nolightbox")?
-      $(this).parent().imageLightbox(options)
+    if not $(this).attr("nolightbox")?
+      $(this).imageLightbox(options)
 
 activityIndicatorOn = ->
   $('<div id="imagelightbox-loading"><div></div></div>' ).appendTo('body')
