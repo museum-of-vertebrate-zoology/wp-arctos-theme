@@ -15,6 +15,7 @@ $ ->
   wpReplacements()
   adminBarHeight = toInt($("#wpadminbar").height())
   $("paper-tabs").sticky({topSpacing:adminBarHeight,getWidthFrom:"header"})
+  # Local searching
   $("#searchsubmit").click ->
     $("#sidebar-search-form").submit()
   $("#s").keyup (e) ->
@@ -25,4 +26,16 @@ $ ->
     url = $("#sidebar-search-form").attr("action")
     searchQuery = encodeURIComponent($("#s").val())
     url = "#{url}?s=#{searchQuery}"
-    window.location.href = url
+    goTo(url)
+  # Arctos Searching
+  $("#searchsubmit-arctos").click ->
+    $("#arctos-search-form").submit()
+  $("#arctos-search").keyup (e) ->
+    code = e.keyCode || e.which
+    if code is 13 then $("#arctos-search-form").submit()
+  $("#arctos-search-form").submit (e) ->
+    e.preventDefault()
+    url = $("#arctos-search-form").attr("action")
+    searchQuery = encodeURIComponent($("#arctos-search").val())
+    url = "#{url}?scientific_name=#{searchQuery}"
+    openLink(url)

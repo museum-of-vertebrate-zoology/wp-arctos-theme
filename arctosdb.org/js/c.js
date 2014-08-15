@@ -339,12 +339,30 @@ $(function() {
       return $("#sidebar-search-form").submit();
     }
   });
-  return $("#sidebar-search-form").submit(function(e) {
+  $("#sidebar-search-form").submit(function(e) {
     var searchQuery, url;
     e.preventDefault();
     url = $("#sidebar-search-form").attr("action");
     searchQuery = encodeURIComponent($("#s").val());
     url = "" + url + "?s=" + searchQuery;
-    return window.location.href = url;
+    return goTo(url);
+  });
+  $("#searchsubmit-arctos").click(function() {
+    return $("#arctos-search-form").submit();
+  });
+  $("#arctos-search").keyup(function(e) {
+    var code;
+    code = e.keyCode || e.which;
+    if (code === 13) {
+      return $("#arctos-search-form").submit();
+    }
+  });
+  return $("#arctos-search-form").submit(function(e) {
+    var searchQuery, url;
+    e.preventDefault();
+    url = $("#arctos-search-form").attr("action");
+    searchQuery = encodeURIComponent($("#arctos-search").val());
+    url = "" + url + "?scientific_name=" + searchQuery;
+    return openLink(url);
   });
 });
