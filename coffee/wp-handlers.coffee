@@ -22,7 +22,6 @@ lightboxImages = (selector = "a") ->
       onLoadEnd: ->
         activityIndicatorOff()
   $(selector).has("img").each ->
-    # bigImage = $(this).parent().attr("href")
     if not $(this).attr("nolightbox")?
       $(this).imageLightbox(options)
 
