@@ -13,7 +13,8 @@ wpReplacements = ->
 
 $ ->
   wpReplacements()
-  $("paper-tabs").sticky({topSpacing:0,getWidthFrom:"header"})
+  adminBarHeight = toInt($("#wpadminbar").height())
+  $("paper-tabs").sticky({topSpacing:adminBarHeight,getWidthFrom:"header"})
   $("#searchsubmit").click ->
     $("#sidebar-search-form").submit()
   $("#s").keyup (e) ->

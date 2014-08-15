@@ -322,9 +322,11 @@ wpReplacements = function() {
 };
 
 $(function() {
+  var adminBarHeight;
   wpReplacements();
+  adminBarHeight = toInt($("#wpadminbar").height());
   $("paper-tabs").sticky({
-    topSpacing: 0,
+    topSpacing: adminBarHeight,
     getWidthFrom: "header"
   });
   $("#searchsubmit").click(function() {
