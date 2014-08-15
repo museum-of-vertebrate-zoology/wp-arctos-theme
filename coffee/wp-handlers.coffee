@@ -13,6 +13,7 @@ wpReplacements = ->
 
 $ ->
   wpReplacements()
+  $("#primary-navigation").sticky({topSpacing:0})
   $("#searchsubmit").click ->
     $("#sidebar-search-form").submit()
   $("#s").keyup (e) ->

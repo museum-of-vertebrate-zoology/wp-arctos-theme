@@ -323,6 +323,9 @@ wpReplacements = function() {
 
 $(function() {
   wpReplacements();
+  $("#primary-navigation").sticky({
+    topSpacing: 0
+  });
   $("#searchsubmit").click(function() {
     return $("#sidebar-search-form").submit();
   });
