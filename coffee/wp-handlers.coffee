@@ -7,6 +7,8 @@ wpReplacements = ->
     if href is window.location.href
       document.querySelector("#menu-main").setAttribute("selected",i)
       console.log("Selected element #{i}")
+    else
+      i++
 
 
 $ ->
@@ -16,3 +18,9 @@ $ ->
   $("#s").keyup (e) ->
     code = e.keyCode || e.which
     if code is 13 then $("#sidebar-search-form").submit()
+  $("#sidebar-search-form").submit (e) ->
+    e.preventDefault()
+    url = $("#sidebar-search-form").attr("action")
+    searchQuery = encodeURIComponent($("#s").val())
+    url = "#{url}?s=#{searchQuery}"
+    window.location.href = url

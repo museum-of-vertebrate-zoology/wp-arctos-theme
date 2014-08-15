@@ -315,6 +315,8 @@ wpReplacements = function() {
     if (href === window.location.href) {
       document.querySelector("#menu-main").setAttribute("selected", i);
       return console.log("Selected element " + i);
+    } else {
+      return i++;
     }
   });
 };
@@ -324,11 +326,19 @@ $(function() {
   $("#searchsubmit").click(function() {
     return $("#sidebar-search-form").submit();
   });
-  return $("#s").keyup(function(e) {
+  $("#s").keyup(function(e) {
     var code;
     code = e.keyCode || e.which;
     if (code === 13) {
       return $("#sidebar-search-form").submit();
     }
+  });
+  return $("#sidebar-search-form").submit(function(e) {
+    var searchQuery, url;
+    e.preventDefault();
+    url = $("#sidebar-search-form").attr("action");
+    searchQuery = encodeURIComponent($("#s").val());
+    url = "" + url + "?s=" + searchQuery;
+    return window.location.href = url;
   });
 });
