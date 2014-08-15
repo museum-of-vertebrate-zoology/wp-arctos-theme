@@ -324,7 +324,7 @@ wpReplacements = function() {
 lightboxImages = function(selector) {
   var options;
   if (selector == null) {
-    selector = "a";
+    selector = "#content a";
   }
   options = {
     onStart: function() {
@@ -339,13 +339,16 @@ lightboxImages = function(selector) {
     },
     onLoadEnd: function() {
       return activityIndicatorOff();
-    }
+    },
+    allowedTypes: 'png|jpg|jpeg|gif'
   };
-  return $(selector).has("img").each(function() {
-    if ($(this).attr("nolightbox") == null) {
-      return $(this).imageLightbox(options);
-    }
-  });
+
+  /*
+  $(selector).has("img").each ->
+    if not $(this).attr("nolightbox")?
+      $(this).imageLightbox(options)
+   */
+  return $(selector).imageLightbox(options);
 };
 
 activityIndicatorOn = function() {

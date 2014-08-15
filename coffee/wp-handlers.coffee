@@ -10,7 +10,7 @@ wpReplacements = ->
     else
       i++
 
-lightboxImages = (selector = "a") ->
+lightboxImages = (selector = "#content a") ->
   options =
       onStart: ->
         overlayOn()
@@ -21,9 +21,14 @@ lightboxImages = (selector = "a") ->
         activityIndicatorOn()
       onLoadEnd: ->
         activityIndicatorOff()
+      allowedTypes: 'png|jpg|jpeg|gif'
+  ###
   $(selector).has("img").each ->
     if not $(this).attr("nolightbox")?
       $(this).imageLightbox(options)
+  ###
+  # Until these narrower selectors work, let's use this
+  $(selector).imageLightbox(options)
 
 activityIndicatorOn = ->
   $('<div id="imagelightbox-loading"><div></div></div>' ).appendTo('body')
