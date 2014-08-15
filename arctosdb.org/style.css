@@ -287,15 +287,16 @@ textarea {
     -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
     padding: 2px;
 }
-a:link {
+a:link,a:visited {
     color: #0066cc;
-}
-a:visited {
-    color: #743399;
+    border-bottom: 1px dotted #0066cc;
+    text-decoration:none;
 }
 a:active,
 a:hover {
     color: #ff4b33;
+    border-bottom:0;
+    text-decoration:underline;
 }
 
 /* Text meant only for screen readers */
@@ -1479,25 +1480,6 @@ h1 {
     font-size: 1.3em;
 }
 
-A:link {
-    text-decoration: none;
-    color: #003B5C;
-}
-
-A:visited:hover {
-    text-decoration: underline;
-    color: #CC0000;
-}
-
-A:visited {
-    text-decoration: none;
-    color: #660099;
-}
-
-A:hover {
-    text-decoration: underline;
-    color: #CC0000;
-}
 
 label {
     display: block;
@@ -1568,12 +1550,8 @@ div.fldDef {
 .entry-meta a:link, .entry-utility a:link { color: #888888;}
 body { background-color: #FFFFFF;}
 
-a:link, a:visited { color: #447755;}
 .home .sticky { background-color: #7CB490;}
 .home .sticky { background-color: rgba( 124, 180, 144, 0.05 );}
-.home .sticky .page-link a { background-color: #7CB490;}
-.home .sticky .page-link a { background-color: rgba( 124, 180, 144, 0.2 );}
-a:hover, a:focus, a:active { color: #000000;}
 .entry-title a:active, .entry-title a:hover { color: #000000;}
 .page-title a:active, .page-title a:hover { color: #000000;}
 .entry-meta a:hover, .entry-utility a:hover { color: #000000;}
