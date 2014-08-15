@@ -10,6 +10,30 @@ wpReplacements = ->
     else
       i++
 
+lightboxImages = (selector = "a > img") ->
+  options =
+      onStart: ->
+        overlayOn()
+      onEnd: ->
+        overlayOff()
+        activityIndicatorOff()
+      onLoadStart: ->
+        activityIndicatorOn()
+      onLoadEnd: ->
+        activityIndicatorOff()
+  $(selector).each ->
+    # bigImage = $(this).parent().attr("href")
+    if not $(this).attr("nolightbox")? and not $(this).parent().attr("nolightbox")?
+      $(this).parent().imageLightbox(options)
+
+activityIndicatorOn = ->
+  $('<div id="imagelightbox-loading"><div></div></div>' ).appendTo('body')
+activityIndicatorOff = ->
+  $('#imagelightbox-loading').remove()
+overlayOn = ->
+  $('<div id="imagelightbox-overlay"></div>').appendTo('body')
+overlayOff = ->
+  $('#imagelightbox-overlay').remove()
 
 $ ->
   wpReplacements()
@@ -39,3 +63,4 @@ $ ->
     searchQuery = encodeURIComponent($("#arctos-search").val())
     url = "#{url}?scientific_name=#{searchQuery}"
     openLink(url)
+  lightboxImages()
