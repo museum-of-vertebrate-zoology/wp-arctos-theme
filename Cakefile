@@ -32,7 +32,7 @@ task 'watch', 'watch and compile changes in source dir', ->
 
 task 'build', 'join and compile *.coffee files', ->
   # Does bare compilation!
-  exec "coffee -bj #{outJS}.js -c #{strFiles}", exerr
+  exec "coffee -bj #{outJS}.js -c #{config.srcDir}/", exerr
 
 task 'min', 'minify compiled *.js file', ->
   exec "java -jar #{config.yuic} #{outJS}.js -o #{outJS}.min.js", exerr
