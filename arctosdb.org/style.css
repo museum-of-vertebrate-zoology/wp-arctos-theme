@@ -1780,6 +1780,6 @@ a:hover, a:focus, a:active { color: #000000;}
     -webkit-animation-play-state: paused;
     -moz-animation-play-state: paused;
 }
-.hide,.nodisp{
+.hide{
     display: none!important;
 }
