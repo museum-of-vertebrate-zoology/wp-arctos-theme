@@ -31,7 +31,8 @@ task 'watch', 'watch and compile changes in source dir', ->
   watch.stdout.on 'data', (data)-> process.stdout.write data
 
 task 'build', 'join and compile *.coffee files', ->
-  exec "coffee -j #{outJS}.js -c #{strFiles}", exerr
+  # Does bare compilation!
+  exec "coffee -bj #{outJS}.js -c #{strFiles}", exerr
 
 task 'min', 'minify compiled *.js file', ->
   exec "java -jar #{config.yuic} #{outJS}.js -o #{outJS}.min.js", exerr
