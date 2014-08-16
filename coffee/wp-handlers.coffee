@@ -9,6 +9,8 @@ wpReplacements = ->
       console.log("Selected element #{i}")
     else
       i++
+  formatScientificNames()
+  false
 
 lightboxImages = (selector = "#content a") ->
   options =
@@ -38,6 +40,12 @@ overlayOn = ->
   $('<div id="imagelightbox-overlay"></div>').appendTo('body')
 overlayOff = ->
   $('#imagelightbox-overlay').remove()
+
+formatScientificNames = (selector = ".sciname") ->
+    $(".sciname").each ->
+      # Is it italic?
+      nameStyle = if $(this).css("font-style") is "italic" then "normal" else "italic"
+      $(this).css("font-style",nameStyle)
 
 $ ->
   wpReplacements()
