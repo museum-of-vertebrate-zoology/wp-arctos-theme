@@ -99,3 +99,12 @@
 	</div><!-- #masthead -->
       </header>
       <div id="main">
+        <?php
+                 /***
+                  * If we're not on the home page, show the page children
+                  ***/
+                 if(!is_home())
+                   {
+                     wp_list_pages(array("child_of"=>get_the_id()));
+                   }
+           ?>
