@@ -99,12 +99,17 @@
 	</div><!-- #masthead -->
       </header>
       <div id="main">
-        <?php
+<?php
+                 $my_theme = wp_get_theme();
+echo "Theme version " . $my_theme->get( 'Version' );
                  /***
                   * If we're not on the home page, show the page children
                   ***/
                  if(!is_home())
                    {
+                     # Need to wrap in paper-menu
+                     echo "<ul>";
                      wp_list_pages(array("child_of"=>get_the_id()));
+                     echo "</ul>";
                    }
            ?>
