@@ -4,7 +4,7 @@
   Description: Based on WordPress default theme "Twenty Ten", from http://wordpress.org/themes/twentyten. Created for ArctosDB.org beginning in August 2014. License updated from GPLv2 to GPLv3 (as per twentyten license). Minimum WordPress version 3.9.
   Author: Philip Kahn
   Author URI: http://philipkahn.com
-  Version: 0.2.6
+  Version: 0.2.7
   License: GPLv3
   License URI: https://www.gnu.org/licenses/gpl.html
   Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu, flexible-header
@@ -628,8 +628,12 @@ body.page .edit-link {
 #content .video-player {
     padding: 0;
 }
-#twitter-link {
+#twitter-link,#google-code-link,#arctos-link {
     margin-top:-0.75em;
+}
+#google-code-link::shadow #icon > div, #arctos-link::shadow #icon > div{
+    background-repeat:no-repeat;
+    background-size:84%!important;
 }
 
 paper-tabs#menu-main {
@@ -652,8 +656,7 @@ a:link,a:visited {
 a:active,
 a:hover {
     color: #ff6600;
-    border-bottom:0;
-    text-decoration:underline;
+    border-bottom:1px solid #ff6600;
 }
 .materialblue {
     background:#5677fc;
