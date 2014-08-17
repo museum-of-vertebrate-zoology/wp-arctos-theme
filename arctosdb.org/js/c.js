@@ -195,37 +195,52 @@ mapNewWindows = function() {
   });
 };
 
-toastStatusMessage = function(message, className, duration) {
+toastStatusMessage = function(message, className, duration, selector) {
+  var html;
   if (className == null) {
     className = "error";
   }
   if (duration == null) {
-    duration = 5000;
+    duration = 3000;
+  }
+  if (selector == null) {
+    selector = "#status-message";
   }
   if (!isNumber(duration)) {
-    duration = 5000;
+    duration = 3000;
   }
-  $('#status-message').text(message);
-  $('#status-message').addClass(className);
-  $("#status-container").toggle(true);
-  return delay(duration, function() {
-    $("#status-message").empty();
-    $("#status-message").removeClass(className);
-    return $("#status-container").toggle(false);
+  if (selector.slice(0, 1) === !"#") {
+    selector = "#" + selector;
+  }
+  if (!$(selector).exists()) {
+    html = "<paper-toast id=\"" + (selector.slice(1)) + "\" duration=\"" + duration + "\"></paper-toast>";
+    $(html).appendTo("body");
+  }
+  $(selector).attr("text", message);
+  $(selector).addClass(className);
+  $(selector)[0].show();
+  return delay(duration + 500, function() {
+    $(selector).empty();
+    $(selector).removeClass(className);
+    return $(selector).attr("text", "");
   });
 };
 
 animateLoad = function(d, elId) {
-  var big, e, html, offset, offset2, sm_d, small;
+  var big, e, html, inlineId, offset, offset2, sm_d, small;
   if (d == null) {
     d = 50;
   }
   if (elId == null) {
     elId = "#status-container";
   }
+  if (elId.slice(0, 1) !== "#") {
+    elId = "#" + elId;
+  }
   try {
     if (!$(elId).exists()) {
-      html = "<div id='status-container'> <div class='ball stop hide'></div><div class='ball1 stop hide'></div> <br/><p id='status-message'></p> </div> <div id='status-container-override'> <p id='status-message-override'></p> </div>";
+      inlineId = elId.slice(1);
+      html = "<div id='status-container'> <div class='ball stop hide'></div><div class='ball1 stop hide'></div> <br/><p id='status-message'></p> </div>";
       $(html).appendTo("body");
     }
     if ($(elId).exists()) {
@@ -263,6 +278,9 @@ stopLoad = function(elId, fadeOut) {
   if (fadeOut == null) {
     fadeOut = 500;
   }
+  if (elId.slice(0, 1) !== "#") {
+    elId = "#" + elId;
+  }
   try {
     if ($(elId).exists()) {
       big = $(elId).find('.ball');
@@ -289,6 +307,9 @@ stopLoadError = function(message, elId, fadeOut) {
   }
   if (fadeOut == null) {
     fadeOut = 1500;
+  }
+  if (elId.slice(0, 1) !== "#") {
+    elId = "#" + elId;
   }
   try {
     if ($(elId).exists()) {

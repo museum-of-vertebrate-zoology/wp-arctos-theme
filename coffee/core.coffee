@@ -111,21 +111,29 @@ mapNewWindows = ->
 
 # Animations
 
-toastStatusMessage = (message, className = "error", duration = 5000) ->
+toastStatusMessage = (message, className = "error", duration = 3000, selector = "#status-message") ->
   if not isNumber(duration)
-    duration = 5000
-  $('#status-message').text(message)
-  $('#status-message').addClass(className)
-  $("#status-container").toggle(true)
-  delay duration, ->
-    $("#status-message").empty()
-    $("#status-message").removeClass(className)
-    $("#status-container").toggle(false)
+    duration = 3000
+  if selector.slice(0,1) is not "#"
+    selector = "##{selector}"
+  if not $(selector).exists()
+    html = "<paper-toast id=\"#{selector.slice(1)}\" duration=\"#{duration}\"></paper-toast>"
+    $(html).appendTo("body")
+  $(selector).attr("text",message)
+  $(selector).addClass(className)
+  $(selector)[0].show()
+  delay duration + 500, ->
+    # A short time after it hides, clean it up
+    $(selector).empty()
+    $(selector).removeClass(className)
+    $(selector).attr("text","")
  
 animateLoad = (d=50,elId="#status-container") ->
+  if elId.slice(0,1) isnt "#" then elId = "##{elId}"
   try
     if not $(elId).exists()
-      html = "<div id='status-container'> <div class='ball stop hide'></div><div class='ball1 stop hide'></div> <br/><p id='status-message'></p> </div> <div id='status-container-override'> <p id='status-message-override'></p> </div>"
+      inlineId = elId.slice(1)
+      html = "<div id='status-container'> <div class='ball stop hide'></div><div class='ball1 stop hide'></div> <br/><p id='status-message'></p> </div>"
       $(html).appendTo("body")
     if $(elId).exists()
       sm_d = roundNumber(d * .5)
@@ -149,22 +157,24 @@ animateLoad = (d=50,elId="#status-container") ->
     console.error('Could not animate loader', e.message);
 
 stopLoad = (elId="#status-container",fadeOut = 500) ->
-    try
-      if $(elId).exists()
-        big = $(elId).find('.ball')
-        small = $(elId).find('.ball1')
-        big.addClass('bballgood ballgood')
-        small.addClass('bballgood ball1good')
-        delay fadeOut, ->
-          big.addClass('stop hide')
-          big.removeClass('bballgood ballgood')
-          small.addClass('stop hide')
-          small.removeClass('bballgood ball1good')
-    catch e
-      console.error('Could not stop load animation', e.message)
+  if elId.slice(0,1) isnt "#" then elId = "##{elId}"
+  try
+    if $(elId).exists()
+      big = $(elId).find('.ball')
+      small = $(elId).find('.ball1')
+      big.addClass('bballgood ballgood')
+      small.addClass('bballgood ball1good')
+      delay fadeOut, ->
+        big.addClass('stop hide')
+        big.removeClass('bballgood ballgood')
+        small.addClass('stop hide')
+        small.removeClass('bballgood ball1good')
+  catch e
+    console.error('Could not stop load animation', e.message)
 
 
 stopLoadError = (message,elId="#status-container",fadeOut = 1500) ->
+  if elId.slice(0,1) isnt "#" then elId = "##{elId}"
   try
     if $(elId).exists()
       big = $(elId).find('.ball')
