@@ -28,5 +28,12 @@
     "picturefill": "~2.1.0",
     "sticky": "*",
     "touch-imagelightbox": "~0.1.5"
+  },
+  "resolutions": {
+    "polymer": "^0.4.0",
+    "core-transition": "^0.4.0",
+    "core-meta": "^0.4.0",
+    "platform": "^0.4.0",
+    "core-component-page": "^0.4.0"
   }
 }
