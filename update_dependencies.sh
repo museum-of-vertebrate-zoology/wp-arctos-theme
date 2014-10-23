@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 echo Updating dependencies ... please wait.
 cd arctosdb.org
 bower update

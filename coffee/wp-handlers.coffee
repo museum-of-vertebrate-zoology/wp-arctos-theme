@@ -61,6 +61,13 @@ formatScientificNames = (selector = ".sciname") ->
       nameStyle = if $(this).css("font-style") is "italic" then "normal" else "italic"
       $(this).css("font-style",nameStyle)
 
+linkoutLabels = ->
+  # Add a linkout icon to all anchors that point to a different domain
+  $("a").each ->
+    href = $(this).attr("href")
+    
+  false
+
 $ ->
   wpReplacements()
   adminBarHeight = toInt($("#wpadminbar").height())
