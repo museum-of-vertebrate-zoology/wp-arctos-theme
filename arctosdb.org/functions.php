@@ -603,7 +603,7 @@ function twentyten_get_gallery_images()
 }
 
 
-function arctos_create_submenu_box($current_page) 
+function arctos_create_submenu_box($current_page,$render = true) 
 {
   /***
    * Take the current page, and from it create a sticky nav box with a
@@ -612,6 +612,8 @@ function arctos_create_submenu_box($current_page)
    * ref: http://codex.wordpress.org/Function_Reference/wp_list_pages
    *
    * @param int $current_page the integer ID of the current page
+   * @param bool $render draw the current page now if true, return the
+   * HTML if false
    ***/
   
   $args = array(
@@ -635,4 +637,28 @@ function arctos_create_submenu_box($current_page)
   
   $html = wp_list_pages($args);
   
+  # These pages are all links -- reparse into <span>
+  
+  $html_elements = explode("<a ",$html);
+  if(sizeof($html_elements) > 0)
+    {
+      $search_crit = array("href","</a>");
+      $replace_data = array("data-url","</paper-tab>")
+        foreach($html_elements as $k=>$element)
+        {
+          $element = str_replace($search_crit,$replace_data,$element);
+          $element = "class='submenu-target' ".$element;
+          $html_elements[$k] = $element;
+        }  
+  
+      # Put all these into a container
+      $output = "<paper-tabs id='page-submenu'>\n".implode("<paper-tab ",$html_elements)."\n</paper-tabs>";
+  
+      if($render) echo $output;
+      else return $output;
+    }
+  else
+    {
+      return false;
+    }
 }
