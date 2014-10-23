@@ -9,6 +9,12 @@ The test status can be seen on http://velociraptorsystems.com/samples/mvz_tests/
 
 **Important Note**: Before final release, the `b` in the `build` and `wjm` tasks in `Cakefile` should be removed.
 
+## Redo
+
+See this:
+
+<img src="Screenshot 2014-10-23 11.35.03.png"/>
+
 ## Font for logo
 
 Moving over to **Slabo 13px**
