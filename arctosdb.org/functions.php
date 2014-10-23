@@ -601,3 +601,38 @@ function twentyten_get_gallery_images()
 
 	return $images;
 }
+
+
+function arctos_create_submenu_box($current_page) 
+{
+  /***
+   * Take the current page, and from it create a sticky nav box with a
+   * list of all the pages that are children of $current page
+   *
+   * ref: http://codex.wordpress.org/Function_Reference/wp_list_pages
+   *
+   * @param int $current_page the integer ID of the current page
+   ***/
+  
+  $args = array(
+    'authors'      => '',
+    'child_of'     => $current_page
+    'date_format'  => get_option('date_format'),
+    'depth'        => 0,
+    'echo'         => 0,
+    'exclude'      => '',
+    'include'      => '',
+    'link_after'   => '', # HTML before
+    'link_before'  => '', # HTML after
+    'post_type'    => 'page',
+    'post_status'  => 'publish',
+    'show_date'    => '',
+    'sort_column'  => 'menu_order, post_title',
+    'sort_order'   => '',
+    'title_li'     => __('Pages'), 
+    'walker'       => ''
+  );
+  
+  $html = wp_list_pages($args);
+  
+}
