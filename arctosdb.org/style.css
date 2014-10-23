@@ -12,6 +12,19 @@
 ***/
 
 
+@font-face {
+    font-family: 'slabo_13pxregular';
+    src: url('fonts/slabo13px-regular-webfont.eot');
+    src: url('fonts/slabo13px-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/slabo13px-regular-webfont.woff2') format('woff2'),
+         url('fonts/slabo13px-regular-webfont.woff') format('woff'),
+         url('fonts/slabo13px-regular-webfont.ttf') format('truetype'),
+         url('fonts/slabo13px-regular-webfont.svg#slabo_13pxregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
    -------------------------------------------------------------- */
 
@@ -32,11 +45,11 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 body {
     line-height: 1;
-    font-family:"Open Sans","Droid Sans","Helvetica",sans-serif;
+    font-family:"Open Sans","Droid Sans","Roboto","Helvetica",sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
     clear: both;
-    font-family:"Roboto","Open Sans","Droid Sans","Helvetica",sans-serif;    
+    font-family:"slabo_13pxregular","Roboto","Open Sans","Droid Sans","Helvetica",sans-serif;    
 }
 h1,h2,h3 {
     font-weight:100;
