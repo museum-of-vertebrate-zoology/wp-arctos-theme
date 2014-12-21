@@ -21,9 +21,9 @@ module.exports = (grunt) ->
       min:
         command: "cake min"
       bower:
-        command: ["cd arctosdb.org", "bower update"]
+        command: ["cd arctosdb.org", "bower update"].join("&&")
       compress:
-        command: ["rm arctosdb.org.zip", "7za a -ssw -y -mx9 -tzip arctosdb.org.zip arctosdb.org -mmt"]
+        command: ["rm arctosdb.org.zip", "7za a -ssw -y -mx9 -tzip arctosdb.org.zip arctosdb.org -mmt"].join("&&")
     coffee:
       compile:
         options:
@@ -40,4 +40,7 @@ module.exports = (grunt) ->
   # Now the tasks
   grunt.registerTask("default",["watch"])
   grunt.registerTask("compile","Compile coffeescript",["coffee:compile","shell:min"])
-  grunt.registerTask("build","Compile, update, and compres",["shell:bam","shell:bower","shell:compress"])
+  grunt.registerTask("update","Update bower dependencies",["shell:bower"])
+  grunt.registerTask("compress","Compress for deployment",["shell:compress"])
+  grunt.registerTask "build","Compile, update, and compress", ->
+    grunt.task.run("update","compile","compress")
