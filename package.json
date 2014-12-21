@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/museum-of-vertebrate-zoology/wp-arctos-theme/issues"
   },
-  "homepage": "https://github.com/museum-of-vertebrate-zoology/wp-arctos-theme"
+  "homepage": "https://github.com/museum-of-vertebrate-zoology/wp-arctos-theme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "coffee-script": "^1.8.0"
+  }
 }
