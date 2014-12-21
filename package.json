@@ -18,6 +18,7 @@
   "homepage": "https://github.com/museum-of-vertebrate-zoology/wp-arctos-theme",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "coffee-script": "^1.8.0"
+    "coffee-script": "^1.8.0",
+    "grunt-contrib-uglify": "^0.6.0"
   }
 }
