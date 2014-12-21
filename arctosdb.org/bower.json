@@ -27,7 +27,8 @@
     "purl": "~2.3.1",
     "picturefill": "~2.1.0",
     "sticky": "*",
-    "touch-imagelightbox": "~0.1.5"
+    "touch-imagelightbox": "~0.1.5",
+    "bootstrap": "~3.3.1"
   },
   "resolutions": {
     "polymer": "^0.4.0",
