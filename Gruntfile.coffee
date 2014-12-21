@@ -1,12 +1,14 @@
-spawn = require('child_process').spawn
-require("load-grunt-tasks")(grunt)
+#spawn = require('child_process').spawn
+#require("load-grunt-tasks")(grunt)
 
 module.exports = (grunt) ->
   # Gruntfile
   # https://github.com/sindresorhus/grunt-shell
   grunt.loadNpmTasks("grunt-shell")
   # https://www.npmjs.com/package/grunt-contrib-coffee
-  grunt.loadNpmTasks("grunt-contrib-coffee") 
+  grunt.loadNpmTasks("grunt-contrib-coffee")
+  # https://github.com/gruntjs/grunt-contrib-watch
+  grunt.loadNpmTasks("grunt-contrib-watch")
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     shell:
@@ -18,12 +20,23 @@ module.exports = (grunt) ->
         command:
           "cd arctosdb.org"
           "bower update"
-    build:
-      # Build tasks -- compile, update bower, and compress
-    compress:
-      # Compress the pacakge
+      compress:
+        command:
+          "rm arctosdb.org.zip"
+          "7za a -ssw -y -mx9 -tzip arctosdb.org.zip arctosdb.org -mmt"
     compile:
       # Compile coffeescript
-
-  grunt.registerMultiTask "build", "Compile, update, and compress", ->
-    buildTask = spawn("build")
+      options:
+        join: true
+        sourceMapDir: "coffee/maps"
+        sourceMap: true
+      files:
+        "arctosdb.org/js":"coffe/*.coffee"
+    watch:
+      scripts:
+        files: ["coffee/*.coffee"]
+        tasks: ["compile"]
+  # Now the tasks
+  grunt.registerTask("default",["watch"])
+  grunt.registerTask("compile","Compile coffeescript",["compile"])
+  grunt.registerTask("build","Compile, update, and compres",["compile","shell:bower","shell:compress"])
