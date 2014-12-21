@@ -1,0 +1,19 @@
+{
+  "name": "wp-arctos-theme",
+  "version": "1.0.0",
+  "description": "Wordpress theme for ArctosDB.org",
+  "main": "arctosdb.org/style.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/museum-of-vertebrate-zoology/wp-arctos-theme.git"
+  },
+  "author": "Philip Kahn <tigerhawkvok@gmail.com>",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/museum-of-vertebrate-zoology/wp-arctos-theme/issues"
+  },
+  "homepage": "https://github.com/museum-of-vertebrate-zoology/wp-arctos-theme"
+}
