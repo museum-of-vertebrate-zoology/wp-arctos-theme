@@ -7,7 +7,11 @@ Refer to http://codex.wordpress.org/Theme_Development for theme parameters.
 
 The test status can be seen on http://velociraptorsystems.com/samples/mvz_tests/arctosdb/ , running the dev branch of WordPress.
 
-**Important Note**: Before final release, the `b` in the `build` and `wjm` tasks in `Cakefile` should be removed.
+## Building
+
+Run `grunt build` from the top level directory to prepare everything. The Gruntfile has a few more details.
+
+**Important Note**: Before final release, the `b` in the `build` and `wjm` tasks in `Cakefile` should be removed, and `bare` removed from `Gruntfile.coffee`.
 
 ## Redo
 
