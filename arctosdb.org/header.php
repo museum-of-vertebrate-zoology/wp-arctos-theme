@@ -32,14 +32,19 @@
       ?></title>
     <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <script src="<?php echo get_template_directory_uri(); ?>/bower_components/platform/platform.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#003262"/>
     <script src="<?php echo get_template_directory_uri(); ?>/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/bower_components/platform/platform.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/bower_components/picturefill/dist/picturefill.min.js" aysnc></script>
     <script src="<?php echo get_template_directory_uri(); ?>/bower_components/touch-imagelightbox/dist/touch-imagelightbox.min.js"></script>
     <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/purl.min.js"></script> -->
     <!-- <script src="<?php echo get_template_directory_uri(); ?>/bower_components/sticky/jquery.sticky.js"></script> -->
     <script src="<?php echo get_template_directory_uri(); ?>/js/sticky.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/c.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-elements/paper-elements.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-elements/core-elements.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-icons/social-icons.html"/>
@@ -77,8 +82,8 @@
   </head>
 
   <body <?php body_class(); ?>>
-    <div id="wrapper" class="hfeed">
-      <header id="header">
+    <div id="wrapper" class="hfeed container">
+      <header id="header" class="row">
 	<div id="masthead">
 	  <div id="branding" role="banner">
             <img src="<?php echo get_template_directory_uri(); ?>/images/headers/wp-banner-02.svg" alt="" />
@@ -98,7 +103,7 @@
 	  </div><!-- #access -->
 	</div><!-- #masthead -->
       </header>
-      <div id="main">
+      <div id="main" class="row">
 <?php
                  $my_theme = wp_get_theme();
 echo "Theme version " . $my_theme->get( 'Version' );

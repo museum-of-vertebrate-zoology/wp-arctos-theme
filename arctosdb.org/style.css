@@ -4,7 +4,7 @@
   Description: Based on WordPress default theme "Twenty Ten", from http://wordpress.org/themes/twentyten. Created for ArctosDB.org beginning in August 2014. License updated from GPLv2 to GPLv3 (as per twentyten license). Minimum WordPress version 3.9.
   Author: Philip Kahn
   Author URI: http://philipkahn.com
-  Version: 0.2.9
+  Version: 0.3.0
   License: GPLv3
   License URI: https://www.gnu.org/licenses/gpl.html
   Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu, flexible-header
@@ -88,17 +88,19 @@ a img {
   */
 
 #container {
-    float: left;
-    margin: 0 -240px 0 0;
-    width: 100%;
+    /* float: left; */
+    /* margin: 0 -240px 0 0; */
+    /* width: 100%; */
 }
 #content {
-    margin: 0 280px 0 20px;
+    /* margin: 0 280px 0 20px; */
 }
 #primary,
 #secondary,#arctos_sidebar {
-    float: right;
     overflow: hidden;
+}
+#primary, #secondary{
+    float: right;
     width: 220px;
 }
 #secondary {
@@ -144,8 +146,8 @@ div.menu,
 #branding,
 #main,
 #wrapper {
-    margin: 0 auto;
-    width: 940px;
+    /* margin: 0 auto; */
+    /* width: 940px; */
 }
 #wrapper {
     background: #fff;
@@ -165,14 +167,11 @@ div.menu,
     margin-right: 0;
 }
 #site-info {
-    float: left;
     font-size: 14px;
     font-weight: bold;
-    width: 700px;
 }
 #site-generator {
     float: right;
-    width: 220px;
 }
 
 
@@ -351,13 +350,13 @@ textarea {
     display: block;
     float: left;
     margin: 0 auto;
-    width: 940px;
+    width: 100%;
 }
 /*#access .menu-header,*/
 div.menu {
     font-size: 13px;
     margin-left: 12px;
-    width: 928px;
+    /* width: 928px; */
 }
 header nav#primary-navigation {
     width:100%;

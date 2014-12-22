@@ -9,7 +9,7 @@
 ?>
 	</div><!-- #main -->
 
-	<div id="footer" role="contentinfo">
+	<div id="footer" role="contentinfo" class="row">
 		<div id="colophon">
 
 <?php
@@ -19,7 +19,7 @@
 	get_sidebar( 'footer' );
 ?>
 
-			<div id="site-info">
+			<div id="site-info" class="col-md-9 col-xs-12">
 				<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 					<?php bloginfo( 'name' ); ?>
 				</a>
@@ -29,7 +29,7 @@
                                 <paper-icon-button id='google-code-link' iconSrc="<?php echo get_template_directory_uri(); ?>/images/icons/googlecode/googlecode.svg" onclick="openLink('https://code.google.com/p/arctos/')"></paper-icon-button>
 			</div><!-- #site-info -->
 
-			<div id="site-generator">
+			<div id="site-generator" class="col-md-3 hidden-sm hidden-xs">
                           Written with <core-icon icon="polymer"></core-icon>
 			</div><!-- #site-generator -->
 

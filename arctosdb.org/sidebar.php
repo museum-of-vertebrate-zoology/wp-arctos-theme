@@ -4,7 +4,7 @@
  *
  */
 ?>
-<div id="arctos_sidebar">
+<div id="arctos_sidebar" class="col-md-3 hidden-sm hidden-xs">
   <div id="search" class="widget-container widget_search">
     <?php get_search_form(); ?>
   </div>
