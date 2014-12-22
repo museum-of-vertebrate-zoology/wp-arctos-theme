@@ -19,10 +19,6 @@ See this:
 
 <img src="Screenshot 2014-10-23 11.35.03.png"/>
 
-## Font for logo
-
-Moving over to **Slabo 13px**
-
 ## Shortcut Classes
 
 These are generally going to be better to use than manually attempting these effects.
