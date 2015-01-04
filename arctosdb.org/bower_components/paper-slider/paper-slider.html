@@ -43,9 +43,9 @@ To change the slider pin color:
       background-color: #0f9d58;
     }
 
-To change the slider pin's value:
+To change the slider pin's font color:
 
-    paper-slider::shadow #sliderKnobInner::after {
+    paper-slider::shadow #sliderKnob > #sliderKnobInner::after {
       color: #0f9d58
     }
 
@@ -91,7 +91,7 @@ To change the slider secondary progress bar color:
       </div>
     </template>
 
-    <div id="sliderKnob" on-down="{{expandKnob}}" on-up="{{resetKnob}}"
+    <div id="sliderKnob" on-down="{{knobdown}}" on-up="{{resetKnob}}"
         on-trackstart="{{trackStart}}" on-trackx="{{trackx}}" on-trackend="{{trackEnd}}"
         on-transitionend="{{knobTransitionEnd}}"
         center-justified center horizontal layout>
@@ -115,6 +115,12 @@ To change the slider secondary progress bar color:
      * Fired when the slider's value changes.
      *
      * @event core-change
+     */
+     
+    /**
+     * Fired when the slider's immediateValue changes.
+     *
+     * @event immediate-value-change
      */
 
     /**
@@ -184,6 +190,8 @@ To change the slider secondary progress bar color:
      * @default 0
      */
 
+    maxMarkers: 100,
+     
     observe: {
       'step snaps': 'update'
     },
@@ -225,6 +233,7 @@ To change the slider secondary progress bar color:
       if (!this.dragging) {
         this.value = this.immediateValue;
       }
+      this.fire('immediate-value-change');
     },
 
     expandKnob: function() {
@@ -281,8 +290,14 @@ To change the slider secondary progress bar color:
       this.value = this.immediateValue;
       this.fire('change');
     },
+    
+    knobdown: function(e) {
+      e.preventDefault();
+      this.expandKnob();
+    },
 
     bardown: function(e) {
+      e.preventDefault();
       this.transiting = true;
       this._w = this.$.sliderBar.offsetWidth;
       var rect = this.$.sliderBar.getBoundingClientRect();
@@ -299,7 +314,11 @@ To change the slider secondary progress bar color:
     },
 
     updateMarkers: function() {
-      this.markers = [], l = (this.max - this.min) / this.step;
+      this.markers = [];
+      var l = (this.max - this.min) / this.step;
+      if (!this.snaps && l > this.maxMarkers) {
+        return;
+      }
       for (var i = 0; i < l; i++) {
         this.markers.push('');
       }
