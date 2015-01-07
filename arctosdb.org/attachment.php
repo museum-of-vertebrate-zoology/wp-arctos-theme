@@ -9,7 +9,10 @@
 
 get_header(); ?>
 
-		<div id="container" class="single-attachment">
+<div id="container" class="single-attachment col-md-9 col-s-12">
+<?php
+  require_once("wp-submenu-display.php");
+?>
 			<div id="content" role="main">
 
 			<?php

@@ -6,9 +6,9 @@
 class sub_nav_walker extends Walker_Nav_Menu {
         var $found_parents = array();
  
-        function start_el(&$output, $item, $depth, $args) {
+        function start_el(&$output, $item, $depth, $args, $id = 0) {
                 global $wp_query;
-               
+                $item_output = null;
                 //this only works for second level sub navigations
                 $parent_item_id = 0;
                
@@ -43,7 +43,7 @@ class sub_nav_walker extends Walker_Nav_Menu {
                 }
         }
  
-        function end_el(&$output, $item, $depth) {
+        function end_el(&$output, $item, $depth, $args) {
                 $parent_item_id = 0;
                
                 $class_names = '';
@@ -59,7 +59,7 @@ class sub_nav_walker extends Walker_Nav_Menu {
                 }
         }
  
-        function end_lvl(&$output, $depth) {
+        function end_lvl(&$output, $depth,$args) {
                 $indent = str_repeat("\t", $depth);
                 // If the sub-menu is empty, strip the opening tag, else closes it
                 if (substr($output, -22) == "<ul class=\"sub-menu\">\n") {

@@ -104,6 +104,3 @@
 	</div><!-- #masthead -->
       </header>
       <div id="main" class="row">
-<?php
- require_once("wp-submenu-display.php");
-?>

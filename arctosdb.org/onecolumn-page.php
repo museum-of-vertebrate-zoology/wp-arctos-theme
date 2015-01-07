@@ -14,7 +14,10 @@
 
 get_header(); ?>
 
-		<div id="container" class="one-column">
+<div id="container" class="one-column col-md-9 col-s-12">
+<?php
+  require_once("wp-submenu-display.php");
+?>
 			<div id="content" role="main">
 
 			<?php
