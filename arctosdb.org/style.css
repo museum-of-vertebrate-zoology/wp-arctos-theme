@@ -1164,6 +1164,7 @@ h3#reply-title {
 .widget-title {
     color: #222;
     font-weight: bold;
+    padding-left:0.5rem;
 }
 .widget-area .entry-meta {
     font-size: 11px;

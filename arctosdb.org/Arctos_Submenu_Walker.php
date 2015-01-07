@@ -8,7 +8,6 @@ class sub_nav_walker extends Walker_Nav_Menu {
  
         function start_el(&$output, $item, $depth, $args, $id = 0) {
                 global $wp_query;
-                $item_output = null;
                 //this only works for second level sub navigations
                 $parent_item_id = 0;
                

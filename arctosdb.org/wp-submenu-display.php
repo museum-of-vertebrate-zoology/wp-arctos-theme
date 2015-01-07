@@ -11,9 +11,14 @@ if(!is_home())
     # While this doesn't work right with random test heierarchies,
     # this should be right on release.
     $first_parent = get_page($parent[0]);
-    echo "<nav id='submenu-navigation' class='menu-submenu'><h4 id='submenu-nav-header'>".$first_parent->post_name." Subtopics:</h4>";
-    wp_nav_menu( array('theme_location' => 'primary-header', "walker"=> new sub_nav_walker ) );
-    echo "</nav>";
+    # ".$first_parent->post_name." 
+    $menu_buffer =  "<nav id='submenu-navigation' class='menu-submenu'><h4 id='submenu-nav-header'>Subtopics:</h4>";
+    $menu_main = wp_nav_menu( array('theme_location' => 'primary-header', "echo"=>false, "walker"=> new sub_nav_walker ) );
+    if(!empty($menu_buffer))
+      {
+        $menu_buffer .= $menu_main . "\n</nav>";
+        echo $menu_buffer;
+      }
   }
 /* $my_wp_query = new WP_Query(); */
 /* $all_wp_pages = $my_wp_query->query(array('post_type' => 'page')); */
