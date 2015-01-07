@@ -29,5 +29,10 @@
     "sticky": "*",
     "touch-imagelightbox": "~0.1.5",
     "bootstrap": "~3.3.1"
+  },
+  "resolutions": {
+    "platform": "^0.4.0",
+    "polymer": "^0.5.0",
+    "core-component-page": "^0.5.0"
   }
 }
