@@ -369,7 +369,7 @@ wpReplacements = function() {
   $("#menu-main paper-tab").each(function() {
     var href;
     href = $(this).attr("data-url");
-    if (href === window.location.href) {
+    if (href === window.location.href || $(this).hasClass("current-menu-ancestor")) {
       document.querySelector("#menu-main").setAttribute("selected", i);
       return console.log("Selected element " + i);
     } else {
@@ -382,21 +382,6 @@ wpReplacements = function() {
 };
 
 linkSubmenu = function() {
-  var i;
-  i = 0;
-  $("#page-submenu paper-tab").each(function() {
-    var href;
-    href = $(this).attr("data-url");
-    if (href === window.location.href) {
-      document.querySelector("#page-submenu").setAttribute("selected", i);
-      console.log("Selected element " + i);
-    } else {
-      i++;
-    }
-    return $(this).click(function() {
-      return goTo(href);
-    });
-  });
   return false;
 };
 

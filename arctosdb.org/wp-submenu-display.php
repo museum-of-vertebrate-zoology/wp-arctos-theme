@@ -8,13 +8,13 @@ if(!is_home())
   {
     require_once("Arctos_Submenu_Walker.php");
     $parent = array_reverse(get_post_ancestors($post->ID));
-    # While this doesn't work right with random test heierarchies,
+    # While this doesn't work right with random test hierarchies,
     # this should be right on release.
     $first_parent = get_page($parent[0]);
     # ".$first_parent->post_name." 
-    $menu_buffer =  "<nav id='submenu-navigation' class='menu-submenu'><h4 id='submenu-nav-header'>Subtopics:</h4>";
+    $menu_buffer =  "<nav id='submenu-navigation' class='menu-submenu'>\n\t<h4 id='submenu-nav-header'>Subtopics:</h4>\n\t";
     $menu_main = wp_nav_menu( array('theme_location' => 'primary-header', "echo"=>false, "walker"=> new sub_nav_walker ) );
-    if(!empty($menu_buffer))
+    if(!empty($menu_buffer) && strpos($menu_main,"sub-menu") !== false)
       {
         $menu_buffer .= $menu_main . "\n</nav>";
         echo $menu_buffer;

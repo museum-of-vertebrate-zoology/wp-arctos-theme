@@ -6,7 +6,7 @@ wpReplacements = ->
   i = 0
   $("#menu-main paper-tab").each ->
     href = $(this).attr("data-url")
-    if href is window.location.href
+    if href is window.location.href or $(this).hasClass("current-menu-ancestor")
       document.querySelector("#menu-main").setAttribute("selected",i)
       console.log("Selected element #{i}")
     else
@@ -16,16 +16,7 @@ wpReplacements = ->
   false
 
 linkSubmenu = ->
-  i = 0
-  $("#page-submenu paper-tab").each ->
-    href = $(this).attr("data-url")
-    if href is window.location.href
-      document.querySelector("#page-submenu").setAttribute("selected",i)
-      console.log("Selected element #{i}")
-    else
-      i++
-    $(this).click ->
-      goTo(href)
+  # Placeholder, as yet unused, function.
   false
 
 lightboxImages = (selector = "#content a") ->

@@ -13,6 +13,8 @@ Run `grunt build` from the top level directory to prepare everything. The Gruntf
 
 **Important Note**: Before final release, the `b` in the `build` and `wjm` tasks in `Cakefile` should be removed, and `bare` removed from `Gruntfile.coffee`.
 
+For easy upgrades, I reccommend installing [this Wordpress plugin](https://wordpress.org/plugins/easy-theme-and-plugin-upgrades/)
+
 ## Redo
 
 See this:
