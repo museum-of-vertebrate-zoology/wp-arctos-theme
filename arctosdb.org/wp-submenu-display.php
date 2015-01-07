@@ -14,8 +14,8 @@ if(!is_home())
 $my_wp_query = new WP_Query();
 $all_wp_pages = $my_wp_query->query(array('post_type' => 'page'));
 echo print_r(get_page_children(get_the_id(),$all_wp_pages),true);
-# http://pastebin.com/Jk7n20mB
-# https://wordpress.org/support/topic/wp_nav_menu-list-only-2nd-level-separate-submenu/page/2#post-1973991
-# Another
-# http://pastebin.com/Hxnf3WWb
+require_once("Arctos_Submenu_Walker.php");
+
+wp_nav_menu( array( "container"=>"nav","container_id"=>"submenu-navigation", 'container_class' => 'menu-submenu', 'theme_location' => 'primary-header', "walker"=> new Arctos_Submenu_Walker ) );
+
 ?>
