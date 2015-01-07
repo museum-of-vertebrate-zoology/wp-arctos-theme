@@ -5,6 +5,8 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  */
+# Ensure error reporting is off for production
+error_reporting(0);
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
@@ -98,7 +100,7 @@
 	    <?php /* Our navigation menu. If one isn't filled out, wp_nav_menu falls back to wp_page_menu. The menu assiged to the primary position is the one used. If none is assigned, the menu with the lowest ID is used. */ ?>
 	    <?php
                require_once("Arctos_Paper_Nav_Menu.php");
-               wp_nav_menu( array( "container"=>"nav","container_id"=>"primary-navigation", 'container_class' => 'menu-header berkeleyblue', 'theme_location' => 'primary-header', "walker"=> new Arctos_Paper_Nav_Menu, "items_wrap" => '<paper-tabs id="%1$s" class="%2$s berkeleyblue" noink>%3$s</paper-tabs>' ) );
+               wp_nav_menu( array( "container"=>"nav","container_id"=>"primary-navigation", 'container_class' => 'menu-header berkeleyblue', 'theme_location' => 'primary-header', "walker"=> new Arctos_Paper_Nav_Menu, "items_wrap" => '<paper-tabs id="%1$s" class="%2$s berkeleyblue" noink>%3$s</paper-tabs>',"depth" => 1 ) );
             ?>
 	  </div><!-- #access -->
 	</div><!-- #masthead -->

@@ -365,6 +365,9 @@ header nav#primary-navigation {
 paper-tab {
     cursor:pointer;
 }
+paper-input {
+    vertical-align:top;
+}
 #access .menu-header ul,
 div.menu ul {
     list-style: none;
