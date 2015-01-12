@@ -15,11 +15,9 @@ Run `grunt build` from the top level directory to prepare everything. The Gruntf
 
 For easy upgrades, I reccommend installing [this Wordpress plugin](https://wordpress.org/plugins/easy-theme-and-plugin-upgrades/)
 
-## Redo
+## Homepage Carousel
 
-See this:
-
-<img src="Screenshot 2014-10-23 11.35.03.png"/>
+Edit the file `homepage-carousel-data.json` in the template directory to update the carousel. The code will take care of the rest!
 
 ## Shortcut Classes
 

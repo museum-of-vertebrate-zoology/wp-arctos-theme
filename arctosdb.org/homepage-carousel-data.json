@@ -1,0 +1,17 @@
+{
+    "0": {
+        "image":"images/carousel-placeholders/chelonia.jpg",
+        "image-description":"image description",
+        "caption":"From https://www.flickr.com/photos/tigerhawkvok/9449565450/"
+    },
+    "1": {
+        "image":"images/carousel-placeholders/ursus.jpg",
+        "image-description":"image description",
+        "caption":"HTML for caption 2. Image from https://www.flickr.com/photos/tigerhawkvok/6024642399/"
+    },
+    "2": {
+        "image":"images/carousel-placeholders/crotalus.jpg",
+        "image-description":"image description",
+        "caption":"<h3>Caption 3</h3><p>From <a href='https://www.flickr.com/photos/tigerhawkvok/2485150958/'>here</a>.</p>"
+    }
+}
