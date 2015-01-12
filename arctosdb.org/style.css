@@ -435,7 +435,10 @@ div.menu li {
     margin-left:1em;
 }
 
-
+#submenu-navigation .sub-menu > li {
+    margin-right:1em;
+    list-style-type:circle;
+}
 #submenu-navigation ul.sub-menu li {
     display: inline-block;
     vertical-align:top;
