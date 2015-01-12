@@ -10,7 +10,7 @@ module.exports = (grunt) ->
   # https://github.com/gruntjs/grunt-contrib-watch
   grunt.loadNpmTasks("grunt-contrib-watch")
   grunt.initConfig
-    pkg: grunt.file.readJS ON('package.json')
+    pkg: grunt.file.readJSON('package.json')
     shell:
       options:
         stderr: false
