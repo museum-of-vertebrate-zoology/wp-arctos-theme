@@ -9,6 +9,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks("grunt-contrib-coffee")
   # https://github.com/gruntjs/grunt-contrib-watch
   grunt.loadNpmTasks("grunt-contrib-watch")
+  # https://github.com/mathiasbynens/grunt-yui-compressor
+  grunt.loadNpmTasks('grunt-yui-compressor')
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     shell:
@@ -24,6 +26,14 @@ module.exports = (grunt) ->
         command: ["cd arctosdb.org", "bower update"].join("&&")
       compress:
         command: ["rm arctosdb.org.zip", "7za a -ssw -y -mx9 -tzip arctosdb.org.zip arctosdb.org -mmt"].join("&&")
+    min:
+      dist:
+        src:['arctosdb.org/js/c.js']
+        dest:'arctosdb.org/js/c.min.js'
+    cssmin:
+      dist:
+        src:["arctosdb.org/style.css"]
+        dest:"arctosdb.org/style.min.css"
     coffee:
       compile:
         options:
