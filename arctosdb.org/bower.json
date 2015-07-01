@@ -1,7 +1,7 @@
 {
   "name": "arctos",
   "version": "1.0.0",
-  "homepage": "https://github.com/tigerhawkvok/wp-arctos-theme",
+  "homepage": "https://github.com/museum-of-vertebrate-zoology/wp-arctos-theme",
   "authors": [
     "Philip Kahn <tigerhawkvok@gmail.com>"
   ],
@@ -20,19 +20,18 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.5.2",
-    "core-elements": "Polymer/core-elements#~0.5.2",
-    "paper-elements": "Polymer/paper-elements#~0.5.2",
-    "jquery": "~2.1.1",
+    "iron-elements": "PolymerElements/iron-elements#^1.0.0",
+    "paper-elements": "PolymerElements/paper-elements#^1.0.1",
+      "gold-elements": "PolymerElements/gold-elements#^1.0.0",
+    "polymer": "Polymer/polymer#^1.0.0",
+    "bootstrap": "^3.3.4",
+    "imagelightbox": "git://github.com/rejas/imagelightbox.git#~0.3.2",
+    "jquery": "~2.1.4",
+    "js-base64": "~2.1.5",
+    "octicons": "~2.1.2",
     "purl": "~2.3.1",
     "picturefill": "~2.1.0",
     "sticky": "*",
     "touch-imagelightbox": "~0.1.5",
-    "bootstrap": "~3.3.1"
-  },
-  "resolutions": {
-    "platform": "^0.4.0",
-    "polymer": "^0.5.0",
-    "core-component-page": "^0.5.0"
   }
 }
