@@ -17,6 +17,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-string-replace')
   grunt.loadNpmTasks('grunt-postcss')
   grunt.loadNpmTasks('grunt-contrib-less')
+  # https://github.com/mathiasbynens/grunt-yui-compressor
+  grunt.loadNpmTasks('grunt-yui-compressor')
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     shell:
