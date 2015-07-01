@@ -35,7 +35,9 @@ Icon
 .Spotlight-V100
 .Trashes
 
-        
+
 # Emacs autorecover
 \#*\#
 *~
+bower_components/bootstrap/node_modules/
+node_modules/
