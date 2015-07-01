@@ -9,8 +9,14 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks("grunt-contrib-coffee")
   # https://github.com/gruntjs/grunt-contrib-watch
   grunt.loadNpmTasks("grunt-contrib-watch")
-  # https://github.com/mathiasbynens/grunt-yui-compressor
-  grunt.loadNpmTasks('grunt-yui-compressor')
+  grunt.loadNpmTasks("grunt-contrib-uglify")
+  grunt.loadNpmTasks("grunt-contrib-cssmin")
+  # Validators
+  grunt.loadNpmTasks('grunt-bootlint')
+  grunt.loadNpmTasks('grunt-html')
+  grunt.loadNpmTasks('grunt-string-replace')
+  grunt.loadNpmTasks('grunt-postcss')
+  grunt.loadNpmTasks('grunt-contrib-less')
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     shell:
