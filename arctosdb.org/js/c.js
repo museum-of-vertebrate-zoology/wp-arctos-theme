@@ -1,22 +1,20 @@
 (function() {
-  var activityIndicatorOff, activityIndicatorOn, animateLoad, byteCount, delay, formatScientificNames, goTo, isBlank, isBool, isEmpty, isJson, isNull, isNumber, lightboxImages, linkSubmenu, linkoutLabels, mapNewWindows, openLink, openTab, overlayOff, overlayOn, root, roundNumber, stopLoad, stopLoadError, toFloat, toInt, toastStatusMessage, wpReplacements,
+  var activityIndicatorOff, activityIndicatorOn, formatScientificNames, lightboxImages, linkSubmenu, linkoutLabels, overlayOff, overlayOn, wpReplacements,
     slice = [].slice;
 
-  root = typeof exports !== "undefined" && exports !== null ? exports : this;
-
-  isBool = function(str) {
+  window.isBool = function(str) {
     return str === true || str === false;
   };
 
-  isEmpty = function(str) {
+  window.isEmpty = function(str) {
     return !str || str.length === 0;
   };
 
-  isBlank = function(str) {
+  window.isBlank = function(str) {
     return !str || /^\s*$/.test(str);
   };
 
-  isNull = function(str) {
+  window.isNull = function(str) {
     try {
       if (isEmpty(str) || isBlank(str) || (str == null)) {
         if (!(str === false || str === 0)) {
@@ -29,7 +27,7 @@
     return false;
   };
 
-  isJson = function(str) {
+  window.isJson = function(str) {
     if (typeof str === 'object') {
       return true;
     }
@@ -42,18 +40,18 @@
     return false;
   };
 
-  isNumber = function(n) {
+  window.isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
   };
 
-  toFloat = function(str) {
+  window.toFloat = function(str) {
     if (!isNumber(str) || isNull(str)) {
       return 0;
     }
     return parseFloat(str);
   };
 
-  toInt = function(str) {
+  window.toInt = function(str) {
     if (!isNumber(str) || isNull(str)) {
       return 0;
     }
@@ -86,11 +84,11 @@
     return size;
   };
 
-  delay = function(ms, f) {
+  window.delay = function(ms, f) {
     return setTimeout(f, ms);
   };
 
-  roundNumber = function(number, digits) {
+  window.roundNumber = function(number, digits) {
     var multiple;
     if (digits == null) {
       digits = 0;
@@ -103,7 +101,7 @@
     return jQuery(this).length > 0;
   };
 
-  byteCount = (function(_this) {
+  window.byteCount = (function(_this) {
     return function(s) {
       return encodeURI(s).split(/%..|./).length - 1;
     };
@@ -116,32 +114,30 @@
 
   window.debounce_timer = null;
 
-  ({
-    debounce: function(func, threshold, execAsap) {
-      if (threshold == null) {
-        threshold = 300;
-      }
-      if (execAsap == null) {
-        execAsap = false;
-      }
-      return function() {
-        var args, delayed, obj;
-        args = 1 <= arguments.length ? slice.call(arguments, 0) : [];
-        obj = this;
-        delayed = function() {
-          if (!execAsap) {
-            return func.apply(obj, args);
-          }
-        };
-        if (window.debounce_timer != null) {
-          clearTimeout(window.debounce_timer);
-        } else if (execAsap) {
-          func.apply(obj, args);
-        }
-        return window.debounce_timer = setTimeout(delayed, threshold);
-      };
+  window.debounce = function(func, threshold, execAsap) {
+    if (threshold == null) {
+      threshold = 300;
     }
-  });
+    if (execAsap == null) {
+      execAsap = false;
+    }
+    return function() {
+      var args, delayed, obj;
+      args = 1 <= arguments.length ? slice.call(arguments, 0) : [];
+      obj = this;
+      delayed = function() {
+        if (!execAsap) {
+          return func.apply(obj, args);
+        }
+      };
+      if (window.debounce_timer != null) {
+        clearTimeout(window.debounce_timer);
+      } else if (execAsap) {
+        func.apply(obj, args);
+      }
+      return window.debounce_timer = setTimeout(delayed, threshold);
+    };
+  };
 
   Function.prototype.debounce = function() {
     var args, delayed, e, execAsap, func, threshold, timeout;
@@ -175,7 +171,7 @@
     return window.debounce_timer = setTimeout(delayed, threshold);
   };
 
-  mapNewWindows = function() {
+  window.mapNewWindows = function() {
     return $(".newwindow").each(function() {
       var curHref, openInNewWindow;
       curHref = $(this).attr("href");
@@ -195,7 +191,7 @@
     });
   };
 
-  toastStatusMessage = function(message, className, duration, selector) {
+  window.toastStatusMessage = function(message, className, duration, selector) {
     var html;
     if (className == null) {
       className = "error";
@@ -226,7 +222,7 @@
     });
   };
 
-  animateLoad = function(d, elId) {
+  window.animateLoad = function(d, elId) {
     var big, e, html, inlineId, offset, offset2, sm_d, small;
     if (d == null) {
       d = 50;
@@ -270,7 +266,7 @@
     }
   };
 
-  stopLoad = function(elId, fadeOut) {
+  window.stopLoad = function(elId, fadeOut) {
     var big, e, small;
     if (elId == null) {
       elId = "#status-container";
@@ -300,7 +296,7 @@
     }
   };
 
-  stopLoadError = function(message, elId, fadeOut) {
+  window.stopLoadError = function(message, elId, fadeOut) {
     var big, e, small;
     if (elId == null) {
       elId = "#status-container";
@@ -333,7 +329,7 @@
     }
   };
 
-  openLink = function(url) {
+  window.openLink = function(url) {
     if (url == null) {
       return false;
     }
@@ -341,11 +337,11 @@
     return false;
   };
 
-  openTab = function(url) {
+  window.openTab = function(url) {
     return openLink(url);
   };
 
-  goTo = function(url) {
+  window.goTo = function(url) {
     if (url == null) {
       return false;
     }
@@ -367,12 +363,14 @@
   wpReplacements = function() {
     var i;
     i = 0;
-    $("#menu-main paper-tab").each(function() {
-      var href;
+    $("#primary-navigation paper-tab").each(function() {
+      var href, parent;
       href = $(this).attr("data-url");
       if (href === window.location.href || $(this).hasClass("current-menu-ancestor")) {
-        document.querySelector("#menu-main").setAttribute("selected", i);
-        return console.log("Selected element " + i);
+        parent = $(this).parents("paper-tabs").get(0);
+        parent.setAttribute("selected", i);
+        console.log("Selected element " + i);
+        return false;
       } else {
         return i++;
       }

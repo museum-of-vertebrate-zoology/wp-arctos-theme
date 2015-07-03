@@ -156,6 +156,9 @@ a img {
   clear: both;
   width: 100%;
 }
+.widget_search paper-input {
+  display: inline-block !important;
+}
 /*
   LAYOUT: One column, no sidebar
   DESCRIPTION: One centered column with no sidebar
@@ -691,8 +694,8 @@ body.page .edit-link {
 #arctos-link {
   margin-top: -0.75em;
 }
-#google-code-link::shadow #icon > div,
-#arctos-link::shadow #icon > div {
+#google-code-link #icon > div,
+#arctos-link #icon > div {
   background-repeat: no-repeat;
   background-size: 84%!important;
 }
@@ -704,8 +707,8 @@ paper-tabs#menu-main {
 paper-tabs[noink][nobar] paper-tab.core-selected {
   color: #ff6600;
 }
-paper-tabs::shadow #selectionBar {
-  background-color: #ff6600;
+paper-tabs #selectionBar {
+  background-color: #ff6600 !important;
 }
 a:link,
 a:visited {
@@ -756,17 +759,18 @@ paper-button[affirmative] {
 }
 /* Via http://brand.berkeley.edu/colors/ */
 .berkeleyblue {
-  background-color: #003262;
+  background-color: #003262 !important;
   color: #fff;
 }
 .calgold {
-  background-color: #fdb515;
+  background-color: #fdb515 !important;
 }
 .foundersrock {
-  background-color: #2d637f;
+  background-color: #2d637f !important;
   color: #fff;
 }
-.medalist {
+.medalist,
+.medialist {
   background-color: #e09319;
 }
 /* =Asides
@@ -1138,7 +1142,7 @@ h3#reply-title {
   /* This keeps the search inputs in line */
   width: 60%;
 }
-.widget_search label {
+.widget_search > label {
   display: none;
 }
 .widget-container {

@@ -618,7 +618,7 @@ function arctos_create_submenu_box($current_page,$render = true)
   
   $args = array(
     'authors'      => '',
-    'child_of'     => $current_page
+    'child_of'     => $current_page,
     'date_format'  => get_option('date_format'),
     'depth'        => 0,
     'echo'         => 0,
@@ -643,7 +643,7 @@ function arctos_create_submenu_box($current_page,$render = true)
   if(sizeof($html_elements) > 0)
     {
       $search_crit = array("href","</a>");
-      $replace_data = array("data-url","</paper-tab>")
+      $replace_data = array("data-url","</paper-tab>");
         foreach($html_elements as $k=>$element)
         {
           $element = str_replace($search_crit,$replace_data,$element);

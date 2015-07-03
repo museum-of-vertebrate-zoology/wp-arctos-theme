@@ -48,11 +48,13 @@ error_reporting(0);
 
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
-    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/font-roboto/roboto.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/polymer/polymer.html"/>
-    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-elements/paper-elements.html"/>
-    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-elements/core-elements.html"/>
-    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-icons/social-icons.html"/>
+    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-tabs/paper-tabs.html"/>
+    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-fab/paper-fab.html"/>
+    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-input/paper-input.html"/>
+    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icon/iron-icon.html"/>
+    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/social-icons.html"/>
+    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/iron-icons.html"/>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />

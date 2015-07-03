@@ -30,7 +30,7 @@
 			</div><!-- #site-info -->
 
 			<div id="site-generator" class="col-md-3 hidden-sm hidden-xs">
-                          Written with <core-icon icon="polymer"></core-icon>
+                          Written with <iron-icon icon="icons:polymer"></iron-icon>
 			</div><!-- #site-generator -->
 
 		</div><!-- #colophon -->

@@ -32,6 +32,8 @@ module.exports = (grunt) ->
         command: ["cd arctosdb.org", "bower update"].join("&&")
       compress:
         command: ["rm arctosdb.org.zip", "7za a -ssw -y -mx9 -tzip arctosdb.org.zip arctosdb.org -mmt"].join("&&")
+      movesrc:
+        command: ["mv arctosdb.org/js/c.src.coffee arctosdb.org/js/maps/c.src.coffee"].join("&&")
     min:
       dist:
         src:['arctosdb.org/js/c.js']
@@ -95,16 +97,18 @@ module.exports = (grunt) ->
     watch:
       scripts:
         files: ["coffee/*.coffee"]
-        tasks: ["coffee:compile","shell:min"]
+        tasks: ["coffee:compile","uglify:dist"]
       styles:
         files: ["less/main.less"]
         tasks: ["less","postcss","cssmin"]
   # Now the tasks
   grunt.registerTask("default",["watch"])
-  grunt.registerTask("compile","Compile coffeescript",["coffee:compile","uglify:dist"])
-  grunt.registerTask("compileNoUglify","Compile coffeescript",["coffee:compile"])
-  grunt.registerTask("minifyBulk","Minify all the things",["uglify:dist","less","postcss","cssmin"])
+  grunt.registerTask("compile","Compile coffeescript",["coffee:compile", "shell:movesrc","uglify:dist"])
+  grunt.registerTask("compileNoUglify","Compile coffeescript",["coffee:compile","shell:movesrc"])
+  grunt.registerTask("minify","Minify all the things",["uglify:dist","less","postcss","cssmin"])
   grunt.registerTask("update","Update bower dependencies",["shell:bower"])
   grunt.registerTask("compress","Compress for deployment",["shell:compress"])
+  grunt.registerTask "qbuild","Compile, update, and compress", ->
+    grunt.task.run("compileNoUglify","minify")
   grunt.registerTask "build","Compile, update, and compress", ->
-    grunt.task.run("update","compileNoUglify","minifyBulk","compress")
+    grunt.task.run("update","compileNoUglify","minify","compress")
