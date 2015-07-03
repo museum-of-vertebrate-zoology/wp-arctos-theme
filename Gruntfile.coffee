@@ -17,8 +17,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-string-replace')
   grunt.loadNpmTasks('grunt-postcss')
   grunt.loadNpmTasks('grunt-contrib-less')
-  # https://github.com/mathiasbynens/grunt-yui-compressor
-  grunt.loadNpmTasks('grunt-yui-compressor')
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     shell:
@@ -39,26 +37,74 @@ module.exports = (grunt) ->
         src:['arctosdb.org/js/c.js']
         dest:'arctosdb.org/js/c.min.js'
     cssmin:
+      options:
+        sourceMap: true
+        advanced: false
+      target:
+        files:
+          "arctosdb.org/style.min.css":["arctosdb.org/style.css"]
+    uglify:
+      options:
+        mangle:
+          except:['jQuery']
       dist:
-        src:["arctosdb.org/style.css"]
-        dest:"arctosdb.org/style.min.css"
+        options:
+          sourceMap:true
+          sourceMapName:"arctosdb.org/js/maps/c.map"
+          sourceMapIncludeSources:true
+          sourceMapIn:"coffee/maps/c.js.map"
+          compress:
+            # From https://github.com/mishoo/UglifyJS2#compressor-options
+            dead_code: true
+            unsafe: true
+            conditionals: true
+            unused: true
+            loops: true
+            if_return: true
+            drop_console: false
+            warnings: true
+            properties: true
+            sequences: true
+            cascade: true
+        files:
+          "arctosdb.org/js/c.min.js":["arctosdb.org/js/c.js"]
     coffee:
       compile:
         options:
-          bare: true
+          bare: false
           join: true
           sourceMapDir: "coffee/maps"
           sourceMap: true
         files:
           "arctosdb.org/js/c.js":"coffee/*.coffee"
+    less:
+      # https://github.com/gruntjs/grunt-contrib-less
+      options:
+        sourceMap: true
+        outputSourceFiles: true
+      files:
+        dest: "arctosdb.org/style.css"
+        src: ["less/style.less"]
+    postcss:
+      options:
+        processors: [
+          require('autoprefixer-core')({browsers: 'last 1 version'})
+          ]
+      dist:
+        src: "arctosdb.org/style.css"
     watch:
       scripts:
         files: ["coffee/*.coffee"]
         tasks: ["coffee:compile","shell:min"]
+      styles:
+        files: ["less/main.less"]
+        tasks: ["less","postcss","cssmin"]
   # Now the tasks
   grunt.registerTask("default",["watch"])
-  grunt.registerTask("compile","Compile coffeescript",["coffee:compile","shell:min"])
+  grunt.registerTask("compile","Compile coffeescript",["coffee:compile","uglify:dist"])
+  grunt.registerTask("compileNoUglify","Compile coffeescript",["coffee:compile"])
+  grunt.registerTask("minifyBulk","Minify all the things",["uglify:dist","less","postcss","cssmin"])
   grunt.registerTask("update","Update bower dependencies",["shell:bower"])
   grunt.registerTask("compress","Compress for deployment",["shell:compress"])
   grunt.registerTask "build","Compile, update, and compress", ->
-    grunt.task.run("update","compile","compress")
+    grunt.task.run("update","compileNoUglify","minifyBulk","compress")
