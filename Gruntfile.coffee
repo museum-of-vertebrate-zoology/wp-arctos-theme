@@ -99,7 +99,7 @@ module.exports = (grunt) ->
         files: ["coffee/*.coffee"]
         tasks: ["coffee:compile","uglify:dist"]
       styles:
-        files: ["less/main.less"]
+        files: ["less/*.less"]
         tasks: ["less","postcss","cssmin"]
   # Now the tasks
   grunt.registerTask("default",["watch"])
