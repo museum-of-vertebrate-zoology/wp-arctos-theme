@@ -11,6 +11,8 @@
   Text Domain: arctosdb.org
 ***/
 
+@import "lightbox.less";
+
 // Via http://brand.berkeley.edu/colors/
 @founders-rock: #2D637F;
 @berkeley-blue: #003262;
@@ -1524,151 +1526,12 @@ body { background-color: #FFFFFF;}
 .home .sticky { background-color: @seafoam;}
 .home .sticky { background-color: @seafoam-light;}
 
-/************
- * Lightbox
- ***************/
-
-/* IMAGE LIGHTBOX SELECTOR */
-
-#imagelightbox
-{
-    cursor: pointer;
-    position: fixed;
-    z-index: 10000;
-
-    -ms-touch-action: none;
-    touch-action: none;
-
-    -webkit-box-shadow: 0 0 3.125em rgba( 0, 0, 0, .75 ); /* 50 */
-    box-shadow: 0 0 3.125em rgba( 0, 0, 0, .75 ); /* 50 */
-}
-
-
-/* ACTIVITY INDICATION */
-
-#imagelightbox-loading,
-#imagelightbox-loading div
-{
-    border-radius: 50%;
-}
-#imagelightbox-loading
-{
-    width: 2.5em; /* 40 */
-    height: 2.5em; /* 40 */
-    background-color: #444;
-    background-color: rgba( 0, 0, 0, .5 );
-    position: fixed;
-    z-index: 10003;
-    top: 50%;
-    left: 50%;
-    padding: 0.625em; /* 10 */
-    margin: -1.25em 0 0 -1.25em; /* 20 */
-
-    -webkit-box-shadow: 0 0 2.5em rgba( 0, 0, 0, .75 ); /* 40 */
-    box-shadow: 0 0 2.5em rgba( 0, 0, 0, .75 ); /* 40 */
-}
-#imagelightbox-loading div
-{
-    width: 1.25em; /* 20 */
-    height: 1.25em; /* 20 */
-    background-color: #fff;
-    margin:0;
-    padding:0;
-    position:relative;
-    left:25%;
-    top:25%;
-
-    -webkit-animation: imagelightbox-loading .5s ease infinite;
-    animation: imagelightbox-loading .5s ease infinite;
-}
-
-@-webkit-keyframes imagelightbox-loading
-{
-    from { opacity: .5;	-webkit-transform: scale( .75 ); }
-    50%	 { opacity: 1;	-webkit-transform: scale( 1 ); }
-    to	 { opacity: .5;	-webkit-transform: scale( .75 ); }
-}
-@keyframes imagelightbox-loading
-{
-    from { opacity: .5;	transform: scale( .75 ); }
-    50%	 { opacity: 1;	transform: scale( 1 ); }
-    to	 { opacity: .5;	transform: scale( .75 ); }
-}
-
-
-/* OVERLAY */
-
-#imagelightbox-overlay
-{
-    background-color: #fff;
-    background-color: rgba( 255, 255, 255, .9 );
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
 
 /******************
  * Loading circle
  ******************/
 
-/* Loading Circle */
 
-.bballerror {
-    border-color: @material-red!important;
-}
-.ballerror {
-    box-shadow: 0 0 35px @material-red!important;
-}
-.ball1error {
-    box-shadow: 0 0 15px @material-red!important;
-}
-.bballgood {
-    border-color: @material-green!important;
-}
-.ballgood {
-    box-shadow: 0 0 35px @material-green!important;
-}
-.ball1good {
-    box-shadow: 0 0 15px @material-green!important;
-}
-.ball,
-.ball1 {
-    transition: all .2s ease-out;
-    -webkit-transition: all .2s ease-out;
-    -moz-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    opacity: .9;
-    background-color: rgba(0, 0, 0, 0);
-    border-color: @material-blue;
-    border-style: solid;
-}
-.ball {
-    border-width: 5px;
-    border-top-color: rgba(0, 0, 0, 0)!important;
-    ;
-    border-left-color: rgba(0, 0, 0, 0)!important;
-    ;
-    border-radius: 50px;
-    box-shadow: 0 0 35px @material-blue;
-    animation: spin .3s infinite linear;
-    -moz-animation: spin .3s infinite linear;
-    -webkit-animation: spin .3s infinite linear;
-}
-.ball1 {
-    border-width: 3px;
-    border-style: dotted;
-    border-top-color: rgba(0, 0, 0, 0)!important;
-    border-left-color: rgba(0, 0, 0, 0)!important;
-    border-radius: 50px;
-    box-shadow: 0 0 15px @material-blue;
-    position: relative;
-    animation: spinoff .3s infinite linear;
-    -moz-animation: spinoff .3s infinite linear;
-    -webkit-animation: spinoff .3s infinite linear;
-}
 @-moz-keyframes spin {
     0% {
         -moz-transform: rotate(0deg);
