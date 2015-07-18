@@ -20,15 +20,17 @@
 ?>
 
 			<div id="site-info" class="col-md-9 col-xs-12">
-				<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-					<?php bloginfo( 'name' ); ?>
-				</a>
-                                |
-                                <paper-icon-button id='twitter-link' icon="social:post-twitter" onclick="openLink('https://twitter.com/arctosdb')"></paper-icon-button>
-                                <paper-icon-button id='arctos-link' src="<?php echo get_template_directory_uri(); ?>/images/icons/arctos/arctos.svg" onclick="openLink('http://arctos.database.museum/')"></paper-icon-button>
-                                <paper-icon-button id='google-code-link' src="<?php echo get_template_directory_uri(); ?>/images/icons/googlecode/googlecode.svg" onclick="openLink('https://code.google.com/p/arctos/')"></paper-icon-button>
+                          <copyright-statement copyrightStart="2011">
+			    <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+			      <?php bloginfo( 'name' ); ?>
+			    </a>
+                          </copyright-statement>
+                          |
+                          <paper-icon-button id='twitter-link' icon="glyphicon-social:twitter" onclick="openLink('https://twitter.com/arctosdb')" class="glyphicon-social"></paper-icon-button>
+                          <paper-icon-button id='arctos-link' src="<?php echo get_template_directory_uri(); ?>/images/icons/arctos/arctos.svg" onclick="openLink('http://arctos.database.museum/')"></paper-icon-button>
+                          <paper-icon-button id='google-code-link' src="<?php echo get_template_directory_uri(); ?>/images/icons/googlecode/googlecode.svg" onclick="openLink('https://code.google.com/p/arctos/')"></paper-icon-button>
 			</div><!-- #site-info -->
-
+                        
 			<div id="site-generator" class="col-md-3 hidden-sm hidden-xs">
                           Written with <iron-icon icon="icons:polymer"></iron-icon>
 			</div><!-- #site-generator -->

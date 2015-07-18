@@ -133,6 +133,9 @@ table {
 a img {
   border: none;
 }
+.carousel {
+  margin-bottom: 2rem;
+}
 /* =Layout
    -------------------------------------------------------------- */
 /*
@@ -1149,8 +1152,7 @@ h3#reply-title {
   word-wrap: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  -ms-hyphens: auto;
-      hyphens: auto;
+  hyphens: auto;
   margin: 0 0 18px 0;
 }
 .widget-container .wp-caption img {
@@ -1459,7 +1461,9 @@ body {
   cursor: pointer;
   position: fixed;
   z-index: 10000;
+  -ms-touch-action: none;
   touch-action: none;
+  -webkit-box-shadow: 0 0 3.125em rgba(0, 0, 0, 0.75);
   /* 50 */
   box-shadow: 0 0 3.125em rgba(0, 0, 0, 0.75);
   /* 50 */
@@ -1484,6 +1488,7 @@ body {
   /* 10 */
   margin: -1.25em 0 0 -1.25em;
   /* 20 */
+  -webkit-box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.75);
   /* 40 */
   box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.75);
   /* 40 */
@@ -1519,18 +1524,15 @@ body {
 @keyframes imagelightbox-loading {
   from {
     opacity: .5;
-    -webkit-transform: scale(0.75);
-            transform: scale(0.75);
+    transform: scale(0.75);
   }
   50% {
     opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   to {
     opacity: .5;
-    -webkit-transform: scale(0.75);
-            transform: scale(0.75);
+    transform: scale(0.75);
   }
 }
 /* OVERLAY */
@@ -1599,6 +1601,22 @@ body {
   -moz-animation: spinoff .3s infinite linear;
   -webkit-animation: spinoff .3s infinite linear;
 }
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinoff {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(-360deg);
+  }
+}
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -1617,22 +1635,18 @@ body {
 }
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 @keyframes spinoff {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
+    transform: rotate(-360deg);
   }
 }
 .stop {
@@ -1643,3 +1657,4 @@ body {
 .hide {
   display: none!important;
 }
+/*# sourceMappingURL=arctosdb.org/style.css.map */

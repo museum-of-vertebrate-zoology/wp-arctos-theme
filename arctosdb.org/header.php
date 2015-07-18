@@ -55,6 +55,8 @@ error_reporting(0);
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icon/iron-icon.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/social-icons.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/iron-icons.html"/>
+    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/polymer-elements/glyphicon-social-icons.html"/>
+    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/polymer-elements/copyright-statement.html"/>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
