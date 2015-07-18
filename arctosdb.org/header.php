@@ -93,7 +93,9 @@ error_reporting(0);
       <header id="header" class="row">
         <div id="masthead">
           <div id="branding" role="banner">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/headers/wp-banner-02.svg" alt="" />
+            <a href="<?php echo get_site_url(); ?>">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/headers/wp-banner-02.svg" alt="" />
+            </a>
             <!-- Insert a polyfill here for
                  backward compatibility wihtout SVG -->
           </div><!-- #branding -->
