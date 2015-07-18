@@ -17,15 +17,15 @@ For easy upgrades, I recommend installing [this Wordpress plugin](https://wordpr
 
 ### CoffeeScript
 
-The scripts for this project are written in [CoffeeScript](http://coffeescript.org/). These, rather than the compiled output Javascript, should be edited if the scripts need editing.
+The scripts for this project are written in [CoffeeScript](http://coffeescript.org/). The files in [the `coffee/` directory](coffee/), rather than the compiled output Javascript, should be edited if the scripts need editing.
 
 ### LESS
 
 The styles are compiled from the [LESS source](http://lesscss.org/features/#features-overview-feature) . The `.less` files in [the `less/` directory](less/) should be modified, rather than the `arctosdb.org/style.css` file directly.
 
-## Homepage Carousel
+### Homepage Carousel
 
-Edit the file `homepage-carousel-data.json` in the template directory to update the carousel. The code will take care of the rest!
+Edit [the file `homepage-carousel-data.json` in the template directory](arctosdb.org/homepage-carousel-data.json) to update the carousel. The code will take care of the rest!
 
 ## Shortcut Classes
 
