@@ -37,7 +37,3 @@ Once the issue is resolved, the attribute `nolightbox` will prevent the lightbox
 ## Picturefill
 
 Check the documentation on https://scottjehl.github.io/picturefill/ for how to responsively fill images.
-
-## YUICompressor
-
-The file `yuicompressor.jar` is from the [YUICompressor project](https://github.com/yui/yuicompressor), with the same BSD license.
