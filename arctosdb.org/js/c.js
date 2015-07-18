@@ -1,5 +1,5 @@
 (function() {
-  var activityIndicatorOff, activityIndicatorOn, formatScientificNames, lightboxImages, linkSubmenu, linkoutLabels, overlayOff, overlayOn, wpReplacements,
+  var activityIndicatorOff, activityIndicatorOn, deepJQuery, formatScientificNames, lightboxImages, linkSubmenu, linkoutLabels, overlayOff, overlayOn, wpReplacements,
     slice = [].slice;
 
   window.isBool = function(str) {
@@ -347,6 +347,38 @@
     }
     window.location.href = url;
     return false;
+  };
+
+  deepJQuery = function(selector) {
+
+    /*
+     * Do a shadow-piercing selector
+     *
+     * Cross-browser, works with Chrome, Firefox, Opera, Safari, and IE
+     * Falls back to standard jQuery selector when everything fails.
+     */
+    var e;
+    try {
+      if (!$("html /deep/ " + selector).exists()) {
+        throw "Bad /deep/ selector";
+      }
+      return $("html /deep/ " + selector);
+    } catch (_error) {
+      e = _error;
+      try {
+        if (!$("html >>> " + selector).exists()) {
+          throw "Bad >>> selector";
+        }
+        return $("html >>> " + selector);
+      } catch (_error) {
+        e = _error;
+        return $(selector);
+      }
+    }
+  };
+
+  window.d$ = function(selector) {
+    return deepJQuery(selector);
   };
 
   $(function() {
