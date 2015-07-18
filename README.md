@@ -13,7 +13,15 @@ Run `grunt build` from the top level directory to prepare everything. The Gruntf
 
 **Important Note**: Before final release, the `b` in the `build` and `wjm` tasks in `Cakefile` should be removed, and `bare` removed from `Gruntfile.coffee`.
 
-For easy upgrades, I reccommend installing [this Wordpress plugin](https://wordpress.org/plugins/easy-theme-and-plugin-upgrades/)
+For easy upgrades, I recommend installing [this Wordpress plugin](https://wordpress.org/plugins/easy-theme-and-plugin-upgrades/)
+
+### CoffeeScript
+
+The scripts for this project are written in [CoffeeScript](http://coffeescript.org/). These, rather than the compiled output Javascript, should be edited if the scripts need editing.
+
+### LESS
+
+The styles are compiled from the [LESS source](http://lesscss.org/features/#features-overview-feature) . The `.less` files in [the `less/` directory](less/) should be modified, rather than the `arctosdb.org/style.css` file directly.
 
 ## Homepage Carousel
 
