@@ -1,6 +1,6 @@
 {
   "name": "wp-arctos-theme",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Wordpress theme for ArctosDB.org",
   "main": "arctosdb.org/style.css",
   "scripts": {

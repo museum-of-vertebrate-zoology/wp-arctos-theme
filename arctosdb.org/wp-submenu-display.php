@@ -3,7 +3,7 @@
  * If we're not on the home page, show the page children
  * If we're on the home page, display a carousel
  ***/
-if(!is_home())
+if(!is_front_page())
   {
     require_once("Arctos_Submenu_Walker.php");
     $parent = array_reverse(get_post_ancestors($post->ID));
