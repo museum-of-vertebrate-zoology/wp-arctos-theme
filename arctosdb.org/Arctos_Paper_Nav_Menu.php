@@ -641,6 +641,18 @@ function _arctos_wp_menu_item_classes_by_context( &$menu_items ) {
 			if ( in_array('current-menu-ancestor', $classes) )
 				$classes[] = 'current_page_ancestor';
 		}
+        try {
+            # Append .current-menu-ancestor if visiting a child page
+            # https://wordpress.stackexchange.com/questions/194984/check-in-walker-if-current-page-is-descendant
+            if ($item->post_parent)	{
+                $ancestors=get_post_ancestors($item->ID);
+                $root=count($ancestors)-1;
+                $parent = $ancestors[$root];
+                if($parent == $menu_item->ID) $classes[] = "current-menu-ancestor";
+            }
+        } catch(Exception $e) {
+            # Do nothing about it
+        }
 
 		$menu_items[$key]->classes = array_unique( $classes );
 	}

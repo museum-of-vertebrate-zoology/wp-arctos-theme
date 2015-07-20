@@ -229,6 +229,12 @@ a img {
 .carousel {
   margin-bottom: 2rem;
 }
+.page-descendant-subchildren {
+  list-style-type: circle;
+}
+.page-descendant-subchildren .page-descendant-subchildren {
+  list-style-type: disc;
+}
 /* =Layout
    -------------------------------------------------------------- */
 /*
