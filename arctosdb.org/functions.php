@@ -603,7 +603,7 @@ function twentyten_get_gallery_images()
 }
 
 
-function arctos_create_submenu_box($current_page,$render = true) 
+function arctos_create_submenu_box($current_page,$render = true)
 {
   /***
    * Take the current page, and from it create a sticky nav box with a
@@ -615,7 +615,7 @@ function arctos_create_submenu_box($current_page,$render = true)
    * @param bool $render draw the current page now if true, return the
    * HTML if false
    ***/
-  
+
   $args = array(
     'authors'      => '',
     'child_of'     => $current_page,
@@ -631,14 +631,14 @@ function arctos_create_submenu_box($current_page,$render = true)
     'show_date'    => '',
     'sort_column'  => 'menu_order, post_title',
     'sort_order'   => '',
-    'title_li'     => __('Pages'), 
+    'title_li'     => __('Pages'),
     'walker'       => ''
   );
-  
+
   $html = wp_list_pages($args);
-  
+
   # These pages are all links -- reparse into <span>
-  
+
   $html_elements = explode("<a ",$html);
   if(sizeof($html_elements) > 0)
     {
@@ -649,11 +649,11 @@ function arctos_create_submenu_box($current_page,$render = true)
           $element = str_replace($search_crit,$replace_data,$element);
           $element = "class='submenu-target' ".$element;
           $html_elements[$k] = $element;
-        }  
-  
+        }
+
       # Put all these into a container
       $output = "<paper-tabs id='page-submenu'>\n".implode("<paper-tab ",$html_elements)."\n</paper-tabs>";
-  
+
       if($render) echo $output;
       else return $output;
     }
@@ -661,4 +661,59 @@ function arctos_create_submenu_box($current_page,$render = true)
     {
       return false;
     }
+}
+
+
+function get_all_page_children ($parent_page) {
+    $my_wp_query = new WP_Query();
+    $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => -1));
+
+
+    $page_children = get_page_children($parent_page, $all_wp_pages);
+    return $page_children;
+    
+}
+
+
+function get_descendant_pages($parent_page, $raw = false, $debug = false) {
+    /***
+     * Show a tree of descendant pages
+     *
+     * @param int $parent_page the parent page ID
+     * @param bool $raw If true, return array instead of HTML
+     ***/
+    $page_children = get_all_page_children($parent_page);
+    $menu_buffer = "<nav id='page-children-list' class='page-descendant-nav'>\n\t<ul class='page-descendant-list'>";
+    $menu_item_list = array();
+    if($debug) echo "<div class='alert alert-info'>We're looking at page children of $page_parent . <br/><br/>Working with <pre>" . print_r($page_children, true) . "</pre></div>";
+    foreach($page_children as $page) {
+        try {
+            $page_url = $page->guid;
+            $page_title = $page->post_title;
+            $item_string = "\n\t\t<li><a href='$page_url'>$page_title</a>";
+
+            # Does this page have children?
+            $page_id = $page->ID;
+            $subchildren_count = count(get_pages('child_of=' . $page_id));
+            $subchildren_exist = $subchildren_count > 0;
+            if($subchildren_exist) {
+                if($debug) echo "<div class='alert alert-warning'>Page $page_title has subchildren!</div>";
+                $children = get_descendant_pages($page_id, true, $debug);
+                $child_ul = "<ul class='page-descendant-subchildren'>" . implode("\n", $children) . "</ul>";
+                $item_string .= $child_ul;
+            }
+            else if ($debug) {
+                echo "<div class='alert alert-warning'>Page $page_title has NO children (count: $subchildren_count)</div>";
+            }
+            $item_string .= "</li>";
+            $menu_buffer .= $item_string;
+            $menu_item_list[] = $item_string;
+        }
+        catch (Exception $e) {
+            echo "<div class='alert alert-danger'>" . $e->getMessage() . "<br/><br/><pre>" . print_r($page,true) . "</pre></div>";
+        }
+    }
+    if($debug) echo "<div class='alert alert-info'>Got <pre>".print_r($menu_item_list, true) . "</pre></div>";
+    $menu_buffer .= "\n\t</ul>\n</nav>";
+    return $raw ? $menu_item_list:$menu_buffer;
 }
