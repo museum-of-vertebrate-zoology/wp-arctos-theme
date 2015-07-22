@@ -672,7 +672,6 @@ div.menu li {
 }
 #content .entry-title {
   color: #000;
-  font-size: 21px;
   line-height: 1.3em;
   margin-bottom: 0;
 }
@@ -1497,9 +1496,6 @@ code {
 }
 .next {
   font-size: small;
-}
-h1 {
-  font-size: 1.3em;
 }
 label {
   display: block;
