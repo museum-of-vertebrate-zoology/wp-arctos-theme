@@ -706,14 +706,16 @@ function get_descendant_pages($parent_page, $raw = false, $debug = false) {
                 echo "<div class='alert alert-warning'>Page $page_title has NO children (count: $subchildren_count)</div>";
             }
             $item_string .= "</li>";
-            $menu_buffer .= $item_string;
-            $menu_item_list[] = $item_string;
+            # $menu_buffer .= $item_string;
+            $menu_item_list[$page_title] = $item_string;
         }
         catch (Exception $e) {
             echo "<div class='alert alert-danger'>" . $e->getMessage() . "<br/><br/><pre>" . print_r($page,true) . "</pre></div>";
         }
     }
+    ksort($menu_item_list);
+    $menu_list = implode("</li>\n",$menu_item_list) . "</li>";
     if($debug) echo "<div class='alert alert-info'>Got <pre>".print_r($menu_item_list, true) . "</pre></div>";
-    $menu_buffer .= "\n\t</ul>\n</nav>";
+    $menu_buffer .= $menu_list . "\n\t</ul>\n</nav>";
     return $raw ? $menu_item_list:$menu_buffer;
 }
