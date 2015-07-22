@@ -13,8 +13,9 @@ if(!is_front_page())
     # ".$first_parent->post_name."
     $menu_buffer =  "<nav id='submenu-navigation' class='menu-submenu alert alert-warning'>\n\t<h4 id='submenu-nav-header'>Subtopics:</h4>\n\t";
     $menu_main = wp_nav_menu( array('theme_location' => 'primary-header', "echo"=>false, "walker"=> new sub_nav_walker ) );
-    if(!empty($menu_buffer) 
-       && strpos($menu_main,"sub-menu") !== false 
+    if(!empty($menu_buffer)
+       && strpos($menu_main,"sub-menu") !== false
+       && strpos($menu_main,"<li") !== false 
        && strpos($menu_main,"</li>") !== false # Use close, since open
                                                # may be different
     )
