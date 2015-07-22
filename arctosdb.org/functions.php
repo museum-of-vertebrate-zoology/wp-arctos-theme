@@ -675,7 +675,7 @@ function get_all_page_children ($parent_page) {
 }
 
 
-function get_descendant_pages($parent_page, $raw = false, $debug = false) {
+function get_descendant_pages($parent_page, $raw = false, $nest = true, $debug = false) {
     /***
      * Show a tree of descendant pages
      *
@@ -694,16 +694,18 @@ function get_descendant_pages($parent_page, $raw = false, $debug = false) {
 
             # Does this page have children?
             $page_id = $page->ID;
-            $subchildren_count = count(get_pages('child_of=' . $page_id));
-            $subchildren_exist = $subchildren_count > 0;
-            if($subchildren_exist) {
-                if($debug) echo "<div class='alert alert-warning'>Page $page_title has subchildren!</div>";
-                $children = get_descendant_pages($page_id, true, $debug);
-                $child_ul = "<ul class='page-descendant-subchildren'>" . implode("\n", $children) . "</ul>";
-                $item_string .= $child_ul;
-            }
-            else if ($debug) {
-                echo "<div class='alert alert-warning'>Page $page_title has NO children (count: $subchildren_count)</div>";
+            if ($nest) {
+                $subchildren_count = count(get_pages('child_of=' . $page_id));
+                $subchildren_exist = $subchildren_count > 0;
+                if($subchildren_exist) {
+                    if($debug) echo "<div class='alert alert-warning'>Page $page_title has subchildren!</div>";
+                    $children = get_descendant_pages($page_id, true, $debug);
+                    $child_ul = "<ul class='page-descendant-subchildren'>" . implode("\n", $children) . "</ul>";
+                    $item_string .= $child_ul;
+                }
+                else if ($debug) {
+                    echo "<div class='alert alert-warning'>Page $page_title has NO children (count: $subchildren_count)</div>";
+                }
             }
             $item_string .= "</li>";
             # $menu_buffer .= $item_string;

@@ -50,10 +50,20 @@ To insert a subtree of all child pages, insert this code into the page:
 $functions_path = get_template_directory() . "/functions.php";
 require_once($functions_path);
 
-echo get_descendant_pages(get_the_ID(), false);
+echo get_descendant_pages(get_the_ID());
 [/php]
 ```
 
+`get_descendant_pages` takes the arguments:
+
+```php
+get_descendant_pages(
+PAGE_ID, # required
+RAW, # Boolean, default false; give just an array rather than HTML
+NEST, # Boolean, default true; show nested heirarchy, otherwise, children won't be nested
+DEBUG # Boolean, default false; show debugging output
+);
+```
 
 ## ImageLightbox
 
