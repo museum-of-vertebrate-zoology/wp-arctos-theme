@@ -35,6 +35,25 @@ These are generally going to be better to use than manually attempting these eff
 - Adding the class `sciname` to any text (eg, `<span class='sciname'>Crotalus cerastes</span>`) will correctly format it; make it italic when in a block of normal text, and de-italicize when in a block of italic text.
 
 
+## Inserting a subtree
+
+To insert a subtree of all child pages, insert this code into the page:
+
+```
+[php]
+
+/***
+# Look at subpages
+# Return them in a list
+***/
+
+$functions_path = get_template_directory() . "/functions.php";
+require_once($functions_path);
+
+echo get_descendant_pages(get_the_ID(), false);
+[/php]
+```
+
 
 ## ImageLightbox
 
