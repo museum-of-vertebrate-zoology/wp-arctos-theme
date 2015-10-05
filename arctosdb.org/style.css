@@ -7238,6 +7238,10 @@ div.menu li {
   margin-left: auto;
   margin-right: auto;
 }
+.carousel-caption a {
+  background: rgba(255, 255, 255, 0.7);
+  padding: .125em .25em;
+}
 #main {
   clear: both;
   overflow: hidden;
