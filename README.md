@@ -25,7 +25,18 @@ The styles are compiled from the [LESS source](http://lesscss.org/features/#feat
 
 ### Homepage Carousel
 
-Edit [the file `homepage-carousel-data.json` in the template directory](arctosdb.org/homepage-carousel-data.json) to update the carousel. The code will take care of the rest!
+Edit [the file `homepage-carousel-data.json` in the template directory](arctosdb.org/homepage-carousel-data.json) to update the carousel. The code will take care of the rest! It can take an arbitrary number of images.
+
+The JSON should look something like the following:
+
+```javascript
+  {
+    "0": { // The nth image. Start at zero, proceed in order, as valid JSON
+        "image":"images/img_15614.jpg", // Path to the image. Relative paths will assume relative to the theme directory.
+        "image-description":"image description", // A description for screen readers, etc. (The "alt" and "aria-" attributes)
+        "caption":"From https://www.flickr.com/photos/tigerhawkvok/9449565450/" // The photo caption, displayed beneath. HTML OK.
+    }
+```
 
 ## Shortcut Classes
 
