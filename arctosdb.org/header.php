@@ -46,7 +46,6 @@ error_reporting(0);
     <script src="<?php echo get_template_directory_uri(); ?>/js/sticky.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/c.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/polymer/polymer.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-tabs/paper-tabs.html"/>
