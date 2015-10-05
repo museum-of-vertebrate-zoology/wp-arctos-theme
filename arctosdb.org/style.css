@@ -58,37 +58,19 @@
   position: relative;
   left: 0.0625em;
   top: 0.0625em;
-  -webkit-animation: imagelightbox-loading 0.5s ease infinite;
   animation: imagelightbox-loading 0.5s ease infinite;
-}
-@-webkit-keyframes imagelightbox-loading {
-  from {
-    opacity: .5;
-    -webkit-transform: scale(0.75);
-  }
-  50% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-  }
-  to {
-    opacity: .5;
-    -webkit-transform: scale(0.75);
-  }
 }
 @keyframes imagelightbox-loading {
   from {
     opacity: .5;
-    -webkit-transform: scale(0.75);
     transform: scale(0.75);
   }
   50% {
     opacity: 1;
-    -webkit-transform: scale(1);
     transform: scale(1);
   }
   to {
     opacity: .5;
-    -webkit-transform: scale(0.75);
     transform: scale(0.75);
   }
 }
@@ -1552,40 +1534,20 @@ body {
 /******************
  * Loading circle
  ******************/
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes spinoff {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(-360deg);
-  }
-}
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 @keyframes spinoff {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
+    transform: rotate(-360deg);
   }
 }
 .stop {

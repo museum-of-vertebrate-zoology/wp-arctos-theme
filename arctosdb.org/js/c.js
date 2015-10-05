@@ -15,26 +15,28 @@
   };
 
   window.isNull = function(str) {
+    var error;
     try {
       if (isEmpty(str) || isBlank(str) || (str == null)) {
         if (!(str === false || str === 0)) {
           return true;
         }
       }
-    } catch (_error) {
+    } catch (error) {
 
     }
     return false;
   };
 
   window.isJson = function(str) {
+    var error;
     if (typeof str === 'object') {
       return true;
     }
     try {
       JSON.parse(str);
       return true;
-    } catch (_error) {
+    } catch (error) {
 
     }
     return false;
@@ -140,7 +142,7 @@
   };
 
   Function.prototype.debounce = function() {
-    var args, delayed, e, execAsap, func, threshold, timeout;
+    var args, delayed, e, error, execAsap, func, threshold, timeout;
     threshold = arguments[0], execAsap = arguments[1], timeout = arguments[2], args = 4 <= arguments.length ? slice.call(arguments, 3) : [];
     if (threshold == null) {
       threshold = 300;
@@ -161,8 +163,8 @@
     if (timeout != null) {
       try {
         clearTimeout(timeout);
-      } catch (_error) {
-        e = _error;
+      } catch (error) {
+        e = error;
       }
     } else if (execAsap) {
       func.apply(obj, args);
@@ -223,7 +225,7 @@
   };
 
   window.animateLoad = function(d, elId) {
-    var big, e, html, inlineId, offset, offset2, sm_d, small;
+    var big, e, error, html, inlineId, offset, offset2, sm_d, small;
     if (d == null) {
       d = 50;
     }
@@ -260,14 +262,14 @@
         return true;
       }
       return false;
-    } catch (_error) {
-      e = _error;
+    } catch (error) {
+      e = error;
       return console.error('Could not animate loader', e.message);
     }
   };
 
   window.stopLoad = function(elId, fadeOut) {
-    var big, e, small;
+    var big, e, error, small;
     if (elId == null) {
       elId = "#status-container";
     }
@@ -290,14 +292,14 @@
           return small.removeClass('bballgood ball1good');
         });
       }
-    } catch (_error) {
-      e = _error;
+    } catch (error) {
+      e = error;
       return console.error('Could not stop load animation', e.message);
     }
   };
 
   window.stopLoadError = function(message, elId, fadeOut) {
-    var big, e, small;
+    var big, e, error, small;
     if (elId == null) {
       elId = "#status-container";
     }
@@ -323,8 +325,8 @@
           return toastStatusMessage(message);
         }
       }
-    } catch (_error) {
-      e = _error;
+    } catch (error) {
+      e = error;
       return console.error('Could not stop load error animation', e.message);
     }
   };
@@ -357,21 +359,21 @@
      * Cross-browser, works with Chrome, Firefox, Opera, Safari, and IE
      * Falls back to standard jQuery selector when everything fails.
      */
-    var e;
+    var e, error, error1;
     try {
       if (!$("html /deep/ " + selector).exists()) {
         throw "Bad /deep/ selector";
       }
       return $("html /deep/ " + selector);
-    } catch (_error) {
-      e = _error;
+    } catch (error) {
+      e = error;
       try {
         if (!$("html >>> " + selector).exists()) {
           throw "Bad >>> selector";
         }
         return $("html >>> " + selector);
-      } catch (_error) {
-        e = _error;
+      } catch (error1) {
+        e = error1;
         return $(selector);
       }
     }
@@ -382,11 +384,11 @@
   };
 
   $(function() {
-    var e;
+    var e, error;
     try {
       window.picturefill();
-    } catch (_error) {
-      e = _error;
+    } catch (error) {
+      e = error;
       console.log("Could not execute picturefill.");
     }
     return mapNewWindows();

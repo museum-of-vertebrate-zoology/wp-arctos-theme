@@ -22,6 +22,8 @@ module.exports = (grunt) ->
     shell:
       options:
         stderr: false
+        execOptions:
+          maxBuffer: 1048576
       test:
         command: "echo test"
       bam:
