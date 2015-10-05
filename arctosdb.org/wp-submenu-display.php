@@ -58,7 +58,7 @@ if(!is_front_page())
       {
         $caption = $slide["caption"];
         # Test if it's a full URL, or a relative one
-        if (preg_match('%^http(?s)://.+\..+$%m', $subject)) {
+        if (preg_match('%^http(?s)://.+\..+$%m', $slide["image"])) {
             # Successful match
             $image = $slide["image"];
         } else {
