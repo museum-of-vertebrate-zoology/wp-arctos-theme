@@ -709,10 +709,15 @@ body.page .edit-link {
 #content .video-player {
     padding: 0;
 }
-#twitter-link,#google-code-link,#arctos-link {
+#twitter-link, #github-link, #arctos-link {
     margin-top:-0.75em;
 }
-#google-code-link #icon > div, #arctos-link #icon > div{
+// For whatever reason, the Github icon is small
+#github-link #icon.iron-icon-0 {
+    width: 30px;
+    height: 30px;
+}
+#arctos-link #icon > div{
     background-repeat:no-repeat;
     background-size:84%!important;
 }
@@ -1290,7 +1295,7 @@ h3#reply-title {
     padding: 18px 0;
 }
 #site-info, #site-info a {
-    vertical-align:top;
+    //vertical-align:top;
 }
 #site-info {
     font-weight: bold;

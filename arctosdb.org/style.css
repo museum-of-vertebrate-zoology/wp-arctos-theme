@@ -773,11 +773,14 @@ body.page .edit-link {
   padding: 0;
 }
 #twitter-link,
-#google-code-link,
+#github-link,
 #arctos-link {
   margin-top: -0.75em;
 }
-#google-code-link #icon > div,
+#github-link #icon.iron-icon-0 {
+  width: 30px;
+  height: 30px;
+}
 #arctos-link #icon > div {
   background-repeat: no-repeat;
   background-size: 84%!important;
@@ -1309,10 +1312,6 @@ h3#reply-title {
   margin-top: -4px;
   overflow: hidden;
   padding: 18px 0;
-}
-#site-info,
-#site-info a {
-  vertical-align: top;
 }
 #site-info {
   font-weight: bold;

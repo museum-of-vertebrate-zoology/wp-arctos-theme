@@ -28,7 +28,7 @@
                           |
                           <paper-icon-button id='twitter-link' icon="glyphicon-social:twitter" onclick="openLink('https://twitter.com/arctosdb')" class="glyphicon-social"></paper-icon-button>
                           <paper-icon-button id='arctos-link' src="<?php echo get_template_directory_uri(); ?>/images/icons/arctos/arctos.svg" onclick="openLink('http://arctos.database.museum/')"></paper-icon-button>
-                          <paper-icon-button id='google-code-link' src="<?php echo get_template_directory_uri(); ?>/images/icons/googlecode/googlecode.svg" onclick="openLink('https://code.google.com/p/arctos/')"></paper-icon-button>
+                          <paper-icon-button id='github-link' icon="glyphicon-social:github" onclick="openLink('https://github.com/ArctosDB/arctos')"></paper-icon-button>
 			</div><!-- #site-info -->
                         
 			<div id="site-generator" class="col-md-3 hidden-sm hidden-xs">
