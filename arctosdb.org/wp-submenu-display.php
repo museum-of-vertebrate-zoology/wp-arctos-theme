@@ -15,7 +15,7 @@ if(!is_front_page())
     $menu_main = wp_nav_menu( array('theme_location' => 'primary-header', "echo"=>false, "walker"=> new sub_nav_walker ) );
     if(!empty($menu_buffer)
        && strpos($menu_main,"sub-menu") !== false
-       && strpos($menu_main,"<li") !== false 
+       && strpos($menu_main,"<li") !== false
        && strpos($menu_main,"</li>") !== false # Use close, since open
                                                # may be different
     )
@@ -57,7 +57,14 @@ if(!is_front_page())
     foreach($cd as $slide)
       {
         $caption = $slide["caption"];
-        $image = get_template_directory_uri() . "/" . $slide["image"];
+        # Test if it's a full URL, or a relative one
+        if (preg_match('%^http(?s)://.+\..+$%m', $subject)) {
+            # Successful match
+            $image = $slide["image"];
+        } else {
+            # Match attempt failed
+            $image = get_template_directory_uri() . "/" . $slide["image"];
+        }
         $alt = $slide["image-description"];
         if($i === 0)
           {
