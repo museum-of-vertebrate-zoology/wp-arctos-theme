@@ -7241,6 +7241,11 @@ div.menu li {
 #arctos_homepage_carousel .carousel-caption {
   bottom: 30px;
 }
+.carousel_control .glyphicon-cheveron-left,
+.carousel_control .glyphicon-cheveron-right {
+  color: #aaa;
+  text-shadow: 2px 2px 2px #000;
+}
 .carousel-caption a {
   background: rgba(255, 255, 255, 0.7);
   padding: .125em .25em;

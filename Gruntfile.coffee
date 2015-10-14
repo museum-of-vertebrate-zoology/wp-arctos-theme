@@ -111,6 +111,6 @@ module.exports = (grunt) ->
   grunt.registerTask("update","Update bower dependencies",["shell:bower"])
   grunt.registerTask("compress","Compress for deployment",["shell:compress"])
   grunt.registerTask "qbuild","Compile, update, and compress", ->
-    grunt.task.run("compileNoUglify","minify")
+    grunt.task.run("compileNoUglify","minify", "compress")
   grunt.registerTask "build","Compile, update, and compress", ->
     grunt.task.run("update","compileNoUglify","minify","compress")

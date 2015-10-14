@@ -50,6 +50,7 @@ error_reporting(0);
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/polymer/polymer.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-tabs/paper-tabs.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-fab/paper-fab.html"/>
+    <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-button/paper-button.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-input/paper-input.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icon/iron-icon.html"/>
     <link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/social-icons.html"/>
