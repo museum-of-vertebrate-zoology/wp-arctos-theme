@@ -2,21 +2,21 @@
     "0": {
         "image":"images/img_15614.jpg",
         "image-description":"image description",
-        "caption":"From https://www.flickr.com/photos/tigerhawkvok/9449565450/"
+        "caption":"<h4><i>Sylvilagus bachmani mariposae</i>, Mariposa Brush rabbit</h4><p>From <a href=' http://arctos.database.museum/guid/MVZ:Mamm:21867'>MVZ:Mamm:21867</a>.</p>"
     },
     "1": {
         "image":"images/img_14048.jpg",
         "image-description":"image description",
-        "caption":"HTML for caption 2. Image from https://www.flickr.com/photos/tigerhawkvok/6024642399/"
+        "caption":"<h4>Hastings Natural History Reserve, Carmel Valley, California</h4>"
     },
     "2": {
-        "image":"images/img_14048.jpg",
+        "image":"http://web.corral.tacc.utexas.edu/MVZ/images/MVZ_img/images/jpg/img_45.jpg",
         "image-description":"image description",
-        "caption":"<h3>Caption 3</h3><p>From <a href='https://www.flickr.com/photos/tigerhawkvok/2485150958/'>here</a>.</p>"
+        "caption":"<h4>Museum party in Strawberry Valley, San Jacinto Mts., July 1908</h4><p>From <a href='http://web.corral.tacc.utexas.edu/MVZ/images/MVZ_img/cards/jpg/img_card_45.jpg'>MVZ Archives Image 45</a>.</p>"
     },
     "3": {
         "image":"images/1_egg.jpg",
         "image-description":"image description",
-        "caption":"<h3>Caption 3</h3><p>From <a href='https://www.flickr.com/photos/tigerhawkvok/2485150958/'>here</a>.</p>"
+        "caption":"<h4><i>Actitis macularia</i>, Spotted Sandpiper</h4><p>From <a href='http://arctos.database.museum/guid/MVZ:Egg:1'>MVZ:Egg:1</a>.</p>"
     }
 }
