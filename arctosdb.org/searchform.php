@@ -9,7 +9,7 @@
   <paper-fab class='mini foundersrock' id='searchsubmit-arctos' icon='icons:search' raisedButton></paper-fab>
 </form>
 <br/>
-<paper-button  onclick="openLink('http://arctos.database.museum/')" class="arctos-link" id="arctos-sidebar-link" raised>
+<paper-button  onclick="openLink('http://arctos.database.museum/')" class="arctos-link center-block berkeley-blue" id="arctos-sidebar-link" raised>
   <iron-icon src="<?php echo get_template_directory_uri(); ?>/images/icons/arctos/arctos.svg"></iron-icon>
   Full Database
 </paper-button>
