@@ -1,6 +1,7 @@
 (function() {
-  var activityIndicatorOff, activityIndicatorOn, deepJQuery, formatScientificNames, lightboxImages, linkSubmenu, linkoutLabels, overlayOff, overlayOn, wpReplacements,
-    slice = [].slice;
+  var activityIndicatorOff, activityIndicatorOn, deepJQuery, formatScientificNames, lightboxImages, linkSubmenu, linkoutLabels, mobileMenu, overlayOff, overlayOn, wpReplacements,
+    slice = [].slice,
+    indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   window.isBool = function(str) {
     return str === true || str === false;
@@ -394,9 +395,25 @@
     return mapNewWindows();
   });
 
+  mobileMenu = function() {
+
+    /*
+     * Hide certain items on the mobile menu list
+     */
+    var allowedIds;
+    allowedIds = ["menu-item-1760", "menu-item-1764", "menu-item-1824"];
+    return $("paper-tabs.menu paper-tab").each(function() {
+      var ref;
+      if (ref = $(this).attr("id"), indexOf.call(allowedIds, ref) < 0) {
+        return $(this).addClass("hidden-xs hidden-sm");
+      }
+    });
+  };
+
   wpReplacements = function() {
     var i;
     i = 0;
+    mobileMenu();
     $("#primary-navigation paper-tab").each(function() {
       var href, parent;
       href = $(this).attr("data-url");
