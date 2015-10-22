@@ -70,7 +70,7 @@ if(!is_front_page())
           {
             echo "\n    <div class=\"item active\">
       <img src=\"".$image."\" alt=\"".$alt."\">
-      <div class=\"carousel-caption\">
+      <div class=\"carousel-caption hidden-xs\">
         ".$caption."
       </div>
     </div>";
@@ -79,7 +79,7 @@ if(!is_front_page())
           {
             echo "\n    <div class=\"item\">
       <img src=\"".$image."\" alt=\"".$alt."\">
-      <div class=\"carousel-caption\">
+      <div class=\"carousel-caption hidden-xs\">
         ".$caption."
       </div>
     </div>";
@@ -91,11 +91,11 @@ if(!is_front_page())
 
   <!-- Controls -->
   <a class="left carousel-control" href="#arctos_homepage_carousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-chevron-left drop-shadow" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="right carousel-control" href="#arctos_homepage_carousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-chevron-right drop-shadow" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>

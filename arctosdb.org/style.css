@@ -6890,6 +6890,11 @@ a img {
 .carousel {
   margin-bottom: 2rem;
 }
+.drop-shadow {
+  text-shadow: 2px 2px 2px #000;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.33);
+  color: #fff;
+}
 .page-descendant-subchildren {
   list-style-type: circle;
 }
@@ -7260,6 +7265,9 @@ div.menu li {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.carousel-indicators {
+  bottom: -10px !important;
 }
 #main {
   clear: both;
