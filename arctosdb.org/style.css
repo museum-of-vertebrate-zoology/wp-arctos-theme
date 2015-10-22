@@ -6917,7 +6917,6 @@ a img {
 }
 #footer {
   clear: both;
-  width: 100%;
 }
 .widget_search paper-input {
   display: inline-block !important;
@@ -6956,7 +6955,6 @@ div.menu,
 }
 #wrapper {
   background: #fff;
-  padding: 0 20px;
 }
 /* Structure the footer area */
 #footer-widget-area {
@@ -8111,8 +8109,7 @@ code {
     display: none !important;
   }
   #container,
-  #header,
-  #footer {
+  #header {
     margin: 0;
     width: 100%;
   }
