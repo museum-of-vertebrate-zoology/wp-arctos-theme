@@ -5,7 +5,7 @@
 </form>
 <form role="search" method="get" id="arctos-search-form" class="search-form" action="http://arctos.database.museum/SpecimenResults.cfm" onsubmit="event.preventDefault()">
   <label for="arctos-search" class="screen-reader-text">Arctos Quick Search:</label>
-  <paper-input id='arctos-search' name='arctos-search' label="DB Keyword Search"></paper-input>
+  <paper-input id='arctos-search' name='arctos-search' label="DB Species Search"></paper-input>
   <paper-fab class='mini foundersrock' id='searchsubmit-arctos' icon='icons:search' raisedButton></paper-fab>
 </form>
 <br/>
